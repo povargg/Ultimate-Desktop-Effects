@@ -30,6 +30,14 @@ Die gemeinsame Auswahl **Schnee / Regen / Blätter / Halloween** befindet sich o
 
 Jeder Effekt besitzt ein eigenes Profil für Dichte, Geschwindigkeit, Wind, Ansammlung, Bildrate und seine besonderen Einstellungen. Die laufende Szene des bisherigen Effekts pausiert einschließlich Ansammlungen und wird bei der Rückkehr fortgesetzt. Nur die ausgewählte Szene wird berechnet und gezeichnet. Beim Beenden werden die Einstellungen und die letzte Effektauswahl gespeichert; nach einem Programmneustart bauen sich die Ansammlungen neu auf, wie bei den Einzelversionen.
 
+| Schnee | Regen |
+| :---: | :---: |
+| <img src="docs/figures/desktop-snow.webp" alt="Schneeflocken und eine Schneewehe auf einem winterlichen Desktop" width="380"> | <img src="docs/figures/desktop-rain.webp" alt="Regentropfen vor einem Sonnenuntergang auf dem Desktop" width="380"> |
+
+| Fallende Blätter | Halloween |
+| :---: | :---: |
+| <img src="docs/figures/desktop-leaves.webp" alt="Fallende Blätter vor einer sonnigen Landschaft auf dem Desktop" width="380"> | <img src="docs/figures/desktop-halloween.webp" alt="Pixel-Süßigkeiten und Spinnen am Faden auf dem Desktop" width="380"> |
+
 | Effekt | Erhaltene Funktionen |
 | --- | --- |
 | Schnee, ursprünglich LayerSnow / „SnowLayer“ | Weiche Flocken und vier Kristallformen, vier Schnee-Voreinstellungen, Wind, Schneeverwehungen, Schmelzen, Abrutschen und Abschütteln |

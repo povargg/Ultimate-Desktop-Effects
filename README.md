@@ -20,9 +20,13 @@ Let snow build up on your windows, watch rain collect above the taskbar, scatter
 
 Each effect keeps its own settings. When you switch away, its scene pauses; return to it to continue the same falling particles and piles. Only the selected effect runs and draws.
 
-![Offline simulation preview of snow, rain, leaves and Halloween](docs/figures/offline-effekte.png)
+| Snow | Rain |
+| :---: | :---: |
+| <img src="docs/figures/desktop-snow.webp" alt="Snowflakes and a snowbank over a winter desktop" width="380"> | <img src="docs/figures/desktop-rain.webp" alt="Rain falling over a sunset desktop" width="380"> |
 
-*Preview generated from the actual simulation state with simplified offline drawing. This is not a Windows screenshot.*
+| Falling leaves | Halloween |
+| :---: | :---: |
+| <img src="docs/figures/desktop-leaves.webp" alt="Leaves drifting across a sunny desktop" width="380"> | <img src="docs/figures/desktop-halloween.webp" alt="Pixel sweets and hanging spiders over a sunset desktop" width="380"> |
 
 ## Four effects
 
