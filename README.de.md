@@ -1,14 +1,13 @@
-# UltimateDesktopEffects 1.0.1
+# UltimateDesktopEffects 1.0.2
 
 **Von [povargg](https://github.com/povargg) und [flipkips](https://github.com/flipkips/desktop-snow-overlay).** Die Windows-Grundlage und der Schnee stammen aus LayerSnow von flipkips; Regen, Blätter, Halloween und die gemeinsame Anwendung bauen darauf auf. MIT-Lizenz.
 
 Eine Windows-App mit vier direkt umschaltbaren Effekten: **Schnee, Regen, Blätter und Halloween**. Alle bisherigen Effektparameter bleiben verfügbar. Sprache, Installation, Tray-Symbol und Windows-Autostart werden gemeinsam verwaltet.
 
-## Änderung in 1.0.1
+## Änderungen in 1.0.2
 
-Die Beschriftung zur Ansammlung im Blättermodus lautet jetzt auf Russisch **Накопление Листьев** und auf Ukrainisch **Накопичення Листя**. Das neue Pixel-Icon zeigt **UE** mit einer gemeinsamen Kochmütze über den Oberkanten beider Buchstaben.
-
-Gezielte Prüfungen dieses kleinen Updates: [docs/PATCH-1.0.1.md](docs/PATCH-1.0.1.md). Die 185 Haupttests stammen unverändert vom geprüften Basisstand 1.0.0.
+- Das Infobereichssymbol kann die Einstellungen und das Schnellmenü auch öffnen, wenn WinDock das ältere Windows-Klickformat sendet.
+- Im Modus „Hinter Fenstern“ wird der Schnee an den Fensterkanten abgeschnitten. Bei einem maximierten Fenster bleibt der gesamte betroffene Bildschirm frei von Schnee.
 
 ## Herunterladen und starten
 

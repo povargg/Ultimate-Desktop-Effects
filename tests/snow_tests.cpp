@@ -1,4 +1,5 @@
 #include "../src/effects/snow/snow.h"
+#include "../src/occlusion.h"
 #include <cstdio>
 #include <functional>
 #include <numeric>
@@ -28,6 +29,40 @@ int main(){int pass=0,fail=0;auto test=[&](const char* title,std::function<void(
  test("melting removes an old snow layer",[]{Cfg().melt=100;auto w=Desktop();Snow s;s.Sync(w);std::fill(s.surfaces[0].h.begin(),s.surfaces[0].h.end(),3);Step(s,w,600);Check(Volume(s.surfaces[0])<.01f,"snow did not melt");});
  test("hidden falling snow can still accumulate",[]{Cfg().showFalling=false;auto w=Desktop();Snow s;s.Sync(w);auto f=Falling(500,1039);f.kind=FLAKE_DOT;f.vy=200;s.flakes.push_back(f);Check(!s.VisibleMotion(),"hidden dots reported visible");Step(s,w,1);Check(Volume(s.surfaces[0])>0,"hidden snow failed to accumulate");});
  test("foreground windows occlude back-window drifts",[]{auto w=Desktop();Window(w,1,{250,200,650,800});Window(w,2,{100,350,900,850});Snow s;s.Sync(w);auto&e=Find(s,2);int c=(400-e.left)/kCell;Check(e.hideBelow[c]>=150,"back drift not occluded");});
+ test("maximized monitor occludes all four edges even with gaps in the frame", [] {
+     auto w = Desktop();
+     Window(w, 1, {2, 3, 1918, 1040});
+     w.monitors[0].maximized = true;
+     for (const bool pause : {false, true}) {
+         Cfg().pauseFullscreen = pause;
+         Check(VisibleDesktopRects(w).empty(), "maximized monitor still exposes a strip");
+     }
+     w.monitors[0].maximized = false;
+     const auto restored = VisibleDesktopRects(w);
+     Check(restored.size() == 4, "restoring the window did not reopen the desktop");
+ });
+ test("maximizing leaves the other DPI-scaled monitor visible", [] {
+     auto w = Desktop();
+     w.virt = {-1920, -320, 2560, 1440};
+     w.monitors[0].maximized = true;
+     w.monitors.push_back({{1920, 320, 4480, 1760}, {1920, 320, 4480, 1700}, 1700, 1.5f});
+     Window(w, 1, {2, 3, 1918, 1040});
+     const auto visible = VisibleDesktopRects(w);
+     Check(visible.size() == 1 && visible[0].l == 1920 && visible[0].t == 320 &&
+           visible[0].r == 4480 && visible[0].b == 1760, "desktop on the second monitor was clipped");
+ });
+ test("a partial snow sprite can render only on the exposed side of a window", [] {
+     auto w = Desktop();
+     Window(w, 1, {200, 100, 800, 600});
+     const RectI sprite{191, 250, 211, 270};
+     std::vector<RectI> clips;
+     for (const auto rect : VisibleDesktopRects(w)) {
+         const auto clip = IntersectRects(sprite, rect);
+         if (clip.w() > 0 && clip.h() > 0) clips.push_back(clip);
+     }
+     Check(clips.size() == 1 && clips[0].l == 191 && clips[0].r == 200 &&
+           clips[0].t == 250 && clips[0].b == 270, "sprite pixels inside the window were left visible");
+ });
  test("slow window movement preserves snow mass",[]{auto w=Desktop();Window(w,1,{100,300,900,800});Snow s;s.Sync(w);Step(s,w,60);auto&e=Find(s,1);std::fill(e.h.begin(),e.h.end(),4);float volume=Volume(e);w.wins[0].rc={150,300,950,800};s.Sync(w);Check(std::fabs(Volume(Find(s,1))-volume)<.01f,"slow drag lost mass");});
  test("window resizing crops and releases overhanging snow",[]{auto w=Desktop();Window(w,1,{100,300,900,800});Snow s;s.Sync(w);std::fill(Find(s,1).h.begin(),Find(s,1).h.end(),5);w.wins[0].rc={100,300,500,800};s.Sync(w);Check(Find(s,1).width<400&&!s.flakes.empty(),"resize failed to spill snow");Finite(s);});
  test("closing a window removes its drift",[]{auto w=Desktop();Window(w,1,{100,300,900,800});Snow s;s.Sync(w);w.wins.clear();s.Sync(w);Check(s.surfaces.size()==1&&s.surfaces[0].ground,"closed window kept a drift");});

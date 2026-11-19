@@ -1,8 +1,8 @@
 {
   "app": "UltimateDesktopEffects",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "target": "Windows 10 1703+ and Windows 11 x64",
-  "date": "2026-11-01",
+  "date": "2026-11-19",
   "authors": [
     "povargg",
     "flipkips"
@@ -30,55 +30,48 @@
   "one_executable_process": true,
   "inactive_state_preserved_in_memory": true,
   "validation": {
-    "baseline_version": "1.0.0",
-    "baseline_native_cpp_tests": {
-      "snow": 24,
+    "simulation_tests": {
+      "snow": 27,
       "rain": 28,
       "leaves": 34,
       "halloween": 34,
       "suite": 65
     },
-    "baseline_native_cpp_total": 185,
-    "baseline_total_passed": 200,
-    "native_cpp_rerun_for_cosmetic_patch": false,
-    "current_release_asset_integration_checks_passed": 15,
-    "current_targeted_patch_checks_passed": 4,
-    "current_failed": 0,
-    "icon_visual_review_sizes": [
-      16,
-      24,
-      32,
-      48
-    ],
-    "native_windows_gui_tested": false,
-    "windows_gpu_tested": false,
-    "windows_mouse_hook_tested": false
+    "simulation_total_passed": 188,
+    "tray_callback_tests_passed": 11,
+    "release_checks_passed": 15,
+    "isolated_windows_runtime_checks_passed": 5,
+    "physical_tray_gestures_verified": false
   },
-  "compiler": "MinGW-w64 GCC 13-posix",
+  "compiler": "MinGW-w64 GCC 15.2.0 (POSIX threads, Windows x64)",
   "digitally_signed": false,
   "executables": [
     {
       "file": "UltimateDesktopEffects.exe",
-      "bytes": 1747318,
-      "sha256": "809252fd2b942c0d5c28b15f2765a077dd6384b0226cbd2795688b337db1758e"
+      "bytes": 1908499,
+      "sha256": "e4fca736b64171878efd2c7d1260ca9c26de5b06f537f159b0a449b50fdc25c8"
     },
     {
       "file": "UltimateDesktopEffects-Portable.exe",
-      "bytes": 1747318,
-      "sha256": "809252fd2b942c0d5c28b15f2765a077dd6384b0226cbd2795688b337db1758e"
+      "bytes": 1908499,
+      "sha256": "e4fca736b64171878efd2c7d1260ca9c26de5b06f537f159b0a449b50fdc25c8"
     }
   ],
   "source_sha256": {
     ".gitignore": "3fc232e1887a621cc2c7d6a5c6ec4b7efb8268256cd61db81feedaf787beafe9",
     "LICENSE": "8910150bcf4a54d656cdb1e46804e4633116a3c7185abadce0199dd3c8467d10",
-    "README.de.md": "a41c9dfbec909805848707b3f15c2585583db99ac4767c9c30078f03a8a99738",
-    "README.md": "65b91e544450bb034d30585539d4e178089792c955cf11a176a3f79b13c84fe8",
+    "README.de.md": "0188f3d8885276f31bbc64c6b0116319b67bbefc56e1f285db795517d3988ddf",
+    "README.md": "074cac3f4166f93e7c4c6b21054342fcc6566d5bcf9f4a2d371a55d452ae305b",
     "build.bat": "ed499d929fe5706e42bb684c5fa73e61e95b717d02ace368034370bff0076339",
-    "build_mingw.py": "aa1cb168a6203f133a54dd5f54395772cb58ccfeabf51bf74df5bf9e1562c97a",
+    "build_mingw.py": "9ffd92e0b8a9846069e4b6cbb9b6f3a922942c9cb5e131ef9493156a2df98a1f",
     "docs/ARCHITEKTUR.md": "9759490390eeed33fb0e9ad68e10928a49d44df7d27462ce213ea50fb29cfeb3",
     "docs/PATCH-1.0.1.md": "c63dcf2ba3306b2863c66bf4a8fada25abb8a5783f5ccbf781ca233570497eaa",
     "docs/VALIDIERUNG.md": "f6d96d52c7660b962fa62d7d4bd40691b3d75c2e4caa40e479c44ae7734e8bf7",
     "docs/benchmark.txt": "b15f39ff7de1cad478490584becf44e6d37f17ab96622817f0e46a005e892a93",
+    "docs/figures/desktop-halloween.webp": "d5f89eb46fc6639fa92819ee17206a787c9cfea9fc28676a6c690ed09006ef02",
+    "docs/figures/desktop-leaves.webp": "196e713af3c038bb6417c2c20aa1e558d22f50f5bac054b6608053774f01873f",
+    "docs/figures/desktop-rain.webp": "055e7b1fc04b0a3c89f8227e143ccd649d8f0bf7641506b761753c0846ce99bf",
+    "docs/figures/desktop-snow.webp": "b681a07c3ca25a086a1bcc3d162fd9d64b17dcaca450215856e9891635131e13",
     "docs/figures/offline-effekte.png": "54d7f0eb9f6e583912ba00a0d54682b9dc9847f9fec2d8c766625cf087f0e6ba",
     "docs/images/ue-chef-logo.png": "7a7c7fa82b82b7c0d6ec527ecf98df89ba64aa9245baad192236f32071e40941",
     "docs/patch-1.0.1-testprotokoll.txt": "7ffcf7581c34f5fd6e414b7671e2384cf92880b4f6f4c406816ef27e40669030",
@@ -87,8 +80,8 @@
     "licenses/GCC-13-NOTICES.txt": "08c6f3dee4c19aa1e57eb7d4ad45829b2e99656313bd07fa0922e2553f500be5",
     "licenses/GCC-RUNTIME-NOTICES.txt": "a481f772f7a53335f13b32c6c54eb1c8577ce97704edd3757ab7ed4287a8e96a",
     "licenses/MinGW-w64-NOTICES.txt": "af23297b7d17e8e31817a5d58088de6fdafe34705bb5a7d1d330f08711b31314",
-    "res/app.manifest": "1a6a75c7b3b3246a7f54644c8673bd511a97131422ec9849ec251ab85cee54df",
-    "res/app.rc": "1a70eccbb3a688ba1dc82923f3bdb6aa73667c08224f944c724f8952aa4378a5",
+    "res/app.manifest": "31cfc3926daa5e12d912d639ab7d52ba7fc567ff5748d4060de91e5676de467c",
+    "res/app.rc": "59c0018bbd7de64d14054e12e5cb805d492c5dbb3ed7c4840671bebf0e863070",
     "res/halloween/generated/candy-sheet.png": "95b8a445250048033050ecc72fd3e07d8a5cef840f9d20985c0eb2dc362e7b46",
     "res/halloween/generated/prompts.json": "a5c634954f69850d67476ba0dee983bbfb84ff2789a5e3b0d8aeba08370d65c0",
     "res/halloween/generated/spiders-sheet.png": "009e51690eea4264de95e9475202f2b7d10bb869942ad33076b5ae20812ff4ac",
@@ -133,9 +126,11 @@
     "res/ultimate.ico": "29daf69dfd36cb7b38c07efe7c0349e0b46a7521e4cc8df46a66698c99a4834d",
     "run-suite-tests.sh": "5311d048e81ba625bfda184f298e416f360eafedb55eb4d1c5a8c59b2a2e5d63",
     "run-tests.sh": "19468b75a4cc122da45d75f6024057ae0a64a8c078a5e890330657f6862963f4",
-    "src/common.h": "8ba6be7f7959f6e39d63416c5292bed12f5d26d8386225946967f800c872d958",
-    "src/config.cpp": "76a923780c253ba72529be2803956077d9ca1d4185fc10eab3f841b77090645d",
+    "src/common.h": "f55c36c399833b34a6c3519b95964499a2732cd566bf05225cda342ba9d99d2f",
+    "src/config.cpp": "5a0cfc75d9fd924729e55bfe01d91e837c844951ccd17b7c94749c2877ffcbeb",
     "src/effect_selector.h": "581886b9d5327cf279b27bead03df61b10937da3546a351b8b938353e5275b74",
+    "src/effects.cpp": "c8d4b3e0bc56b8e364fab4396b75169a741553f1f4f8542c1ed2f7b840ce9749",
+    "src/effects.h": "0241dda41c30c3271cc56ea10dbaf4583020efab93011d29c738d2f5f27d3159",
     "src/effects/halloween/i18n.cpp": "4ebad34d79cfe7430072054e39914e9b75f4c83e5b68ef2da6e16b40dbae9fda",
     "src/effects/halloween/i18n.h": "d07c0e105f80b382750c58f40f4cc62c35eba1ba2720bc334188a15c6d8a6919",
     "src/effects/halloween/panel.cpp": "f5a71548ff2983fbdb7717c813c3e6068fe28da8587961f35427b3b34364a126",
@@ -186,8 +181,8 @@
     "src/effects/snow/i18n.cpp": "00b55e3cccbf7f29e75cb877cf19d04ad5dbd2126985707c6c3a1f9bb46c5394",
     "src/effects/snow/i18n.h": "332b15db9f390dc2a88ee6fe37a15162a70fb664030f381627e4f694be9a0394",
     "src/effects/snow/presets.cpp": "c727941e14b2a81ccbd50a93f0de59db4adb7aab59536db47db763e3fcdf7dce",
-    "src/effects/snow/render.cpp": "f6c774f56ed244039777f9a25fdd90ff82e1b737db538839d93f4a7d477d2304",
-    "src/effects/snow/render.h": "bf314ce61a48cfbbd0c8d057faeaa6e8b4a48f9cd77bcf0cd688b8556c52d950",
+    "src/effects/snow/render.cpp": "61acb5daa9e293d45086db48b4e4cf24409a9a2a3d6e9b4ebca468a5e8e30d97",
+    "src/effects/snow/render.h": "0174972e7a98100dd8c62a75d1c207e845123ba72299e404f3fe4303baf35f83",
     "src/effects/snow/settings.cpp": "2c0fc40b92c87fa764d73d33bd367ad2db940579b279cfb5bab248f952b0cf59",
     "src/effects/snow/settings.h": "9fdc7b20ce692280502b6f587724b1fc06b2556a6bbbe45fe6a87b6a555825b4",
     "src/effects/snow/snow.cpp": "99ef66a214cb47bd2c36f6b56e2095106ee3ba8df01b580f9e17c3fa6336a084",
@@ -197,42 +192,41 @@
     "src/effects/snow/snowui.h": "8be4120af560d69ca3159a6260ffcd921b1d460fd54dbe8903c682885648ffb5",
     "src/effects/snow/ui.cpp": "aaa32bf5ba3213439030358c445d237df1d17ad3d16145829a1641e0060ac2db",
     "src/effects/snow/ui.h": "92f5817c7c898d0b507f70f90e7a150954a91afef0a24fb7db7e901930624b19",
-    "src/effects.cpp": "c8d4b3e0bc56b8e364fab4396b75169a741553f1f4f8542c1ed2f7b840ce9749",
-    "src/effects.h": "0241dda41c30c3271cc56ea10dbaf4583020efab93011d29c738d2f5f27d3159",
     "src/i18n.cpp": "6f27917caa750ea2322521be0899144c3b2d7e03de0c28fca8fa01c3a2e853ef",
     "src/i18n.h": "abf8a05fbc820e7f82ac7cf624d18b545a1d3de2e64c51f2d56c8ca8d23c0b15",
     "src/install.cpp": "2057fb733292e0ef434c42675b31e2a0d3dd47600f3571382f2620b357469e5c",
     "src/install.h": "3bbfb6f6e211b8aa3488d5c60923dd32d941d527ecb5bd21fc4c42948170372d",
-    "src/license.h": "9d6bfadccd3c9e1c62609ed01ff497002c06dbbb05083fa03a7445c131ce0202",
-    "src/main.cpp": "c30ed64151e0b3746e47bad03dc97318db095cf2c6d286762bb4fda95f0c147e",
-    "src/occlusion.h": "686d96bd8264281346ba03f59328ba7d133519e91bc502adb6e79357a7049f22",
+    "src/license.h": "07d13d75a12f53be139584aa7ad4db6953a8721dfbf60dd008bf0b0850abb152",
+    "src/main.cpp": "e0fcda363fdcbda6d9a214c88ff233113e4a30d2af5c70719fe84dff49f5b2b9",
+    "src/occlusion.h": "9122a5828d7788f8c2e76bb03f46bf3bb085c96a43c39a7e156d982c6a11739c",
     "src/render.cpp": "d083e13034b365f7443388018a22651d6adee20ad0d30b407a3998635dc526ac",
     "src/render.h": "8fe8c126dfc5fa4cc978de387be15695d1ec056c6845c85b047b9ee07e807666",
     "src/settings.cpp": "e1bd8e47f2ad7c705774c03a42bf5261e03c24e451c1d8cadd76ca4397d08ac3",
     "src/settings.h": "9d9cf8a69d2233925f6a532d7c25c3210a593545dd54e87c879339bdcb13f9d4",
     "src/settings_api.h": "9ee7fb6745fa444dabe8d6513e51925f0bfc9669cd99e2464fd92d4f60477b67",
-    "src/ui.cpp": "d977f86841e3549bc9957ede1d442606006c5536d7a790054abb12bb4ebf145c",
+    "src/tray_input.h": "70760b03bdd18f33341c2be90f13f9fba3a3541a994070285393ecfce4218e98",
+    "src/ui.cpp": "64508492582c07bc3c40bdfcdbaeac1ec881ed694ab48e4f734434b0446c51b2",
     "src/ui.h": "aeedfdacf724ab65f7070a0baf8badd5d7aa0beb5e9b1ed1a53c0621181ddd2b",
-    "src/world.cpp": "4d432ad1fab33371b4b7debd3908e10a534614e40831deb06ad48f1bdb2848e1",
-    "src/world.h": "f65936352ce2970c4a6dd0362f7e77b700ed07d62998eb6efb3e1a6043f39e40",
+    "src/world.cpp": "5973801138eac2bf539bdc68f99919202928bd79912dc70673f8e1e468090d11",
+    "src/world.h": "cc51065f6d62cf499aca8ac6b9b948b45e1cd9eb04c216a0bc5fadeed04cb8a6",
     "tests/benchmark.cpp": "387aa7b0afb419e9645d8104c660ff0c50c19a9646138adae49764265a2c09b2",
     "tests/halloween_tests.cpp": "e322f5fdfc5e6c17cbc414c1a32aebc5b32990f8e3b486633ffb5dcb90332c09",
     "tests/leaves_tests.cpp": "5431fc8771f9961fab05c792d9e4ceaeee1faa7d89594334673f7d064a0a65c3",
     "tests/preview.cpp": "0e00067b2eaa0e781ebb731339f3fc97b4e8538ca604fe5200b0eec51c535955",
     "tests/rain_tests.cpp": "75752a85b575978f673ace566ea4adbcaf1f809d1001642ca5f6338afe3f563f",
-    "tests/release_checks.py": "c07e1bace1051a10b1cca82a28900fb32cdc57cd6627b830805c725d79f3e430",
-    "tests/snow_tests.cpp": "64c1720abf52868acff30b10d1e5861f1401f20868633b33f0d08a1e40c73b80",
+    "tests/release_checks.py": "11790ade36ea2263b92e011702248d2a3f7860d9343249ed284cb121871c210e",
+    "tests/snow_tests.cpp": "a6f6736327660bd7fb669db9f2a40ec541e7f5cafdda05a801275b97f0a3525e",
     "tests/suite_tests.cpp": "921bac3c1532650c4cb85a6892ce27ebae3b1d853be85f5513f07560dd829601",
+    "tests/tray_tests.cpp": "363624f55a9667182a4ecb505a6e6883d221bd8af6f79c18702a197c8b589cf8",
     "tests/win_stub.h": "dbf14b4cbaba54a3434cf69dff177d0c61d20eb7bc6ce40662d3df80b252e615",
     "tools/inspect.sh": "7b4adb3b212f025fee7656227b1694b8840f43837cd44a251a13c30cfd03e34f",
     "tools/make_icon.py": "5f0cb45f603aedc68fd7a4449b2919af2cb5ca874639cb1a2d1d6647fbd595b6",
     "tools/preview.py": "10b4ff7fe821ef5583dc2dbebbbc03c27180fa8c2e915c8f73101fdafd02fcc9"
   },
-  "based_on": "1.0.0",
+  "based_on": "1.0.1",
   "changes": [
-    "Russian Leaf accumulation label: Накопление Листьев",
-    "Ukrainian Leaf accumulation label: Накопичення Листя",
-    "Pixel UE monogram with shared chef hat"
+    "Open settings and the tray menu from classic and v4 notification callbacks, including WinDock.",
+    "Clip falling snow at window edges and keep a maximized monitor clear in Behind windows mode."
   ],
   "icon": {
     "native_grid": [
@@ -253,7 +247,6 @@
   },
   "publication": {
     "repository": "https://github.com/povargg/UltimateDesktopEffects",
-    "tag": "v1.0.1",
-    "application_binary_unchanged": true
+    "tag": "v1.0.2"
   }
 }

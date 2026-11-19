@@ -4,6 +4,7 @@
 #include "render.h"
 #include "settings.h"
 #include "effects.h"
+#include "tray_input.h"
 #include "ui.h"
 #include "world.h"
 #include <dwmapi.h>
@@ -122,10 +123,10 @@ LRESULT App::HandleMsg(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
     }
     switch (msg) {
     case WM_APP_TRAY:
-        switch (LOWORD(lp)) {
-        case WM_CONTEXTMENU: ShowTrayFlyout(msgWnd_); break;
-        case NIN_SELECT:
-        case NIN_KEYSELECT: ShowSettingsWindow(msgWnd_); break;
+        switch (TrayActionForCallback(wp, lp)) {
+        case TrayAction::Menu: ShowTrayFlyout(msgWnd_); break;
+        case TrayAction::Settings: ShowSettingsWindow(msgWnd_); break;
+        case TrayAction::None: break;
         }
         return 0;
     case WM_APP_SHOWSETTINGS: ShowSettingsWindow(msgWnd_); return 0;

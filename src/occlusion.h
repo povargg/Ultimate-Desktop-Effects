@@ -27,12 +27,16 @@ inline std::vector<std::pair<float, float>> VisibleLine(float ax, float ay, floa
     return visible;
 }
 
+inline RectI IntersectRects(RectI a, RectI b) {
+    return {std::max(a.l, b.l), std::max(a.t, b.t), std::min(a.r, b.r), std::min(a.b, b.b)};
+}
+
 inline std::vector<RectI> VisibleDesktopRects(RectI monitor, const World& world) {
     std::vector<RectI> rects{monitor};
     for (const auto& wi : world.wins) {
         std::vector<RectI> next;
         for (auto r : rects) {
-            RectI i{std::max(r.l,wi.rc.l),std::max(r.t,wi.rc.t),std::min(r.r,wi.rc.r),std::min(r.b,wi.rc.b)};
+            const RectI i = IntersectRects(r, wi.rc);
             if(i.w()<=0 || i.h()<=0) {next.push_back(r);continue;}
             if(r.t<i.t)next.push_back({r.l,r.t,r.r,i.t});
             if(i.b<r.b)next.push_back({r.l,i.b,r.r,r.b});
@@ -42,4 +46,15 @@ inline std::vector<RectI> VisibleDesktopRects(RectI monitor, const World& world)
         rects.swap(next);
     }
     return rects;
+}
+
+inline std::vector<RectI> VisibleDesktopRects(const World& world) {
+    std::vector<RectI> visible;
+    for (const auto& monitor : world.monitors) {
+        // The visible frame may leave a thin strip at the edge or stop at the taskbar.
+        if (monitor.maximized) continue;
+        auto rects = VisibleDesktopRects(monitor.rc, world);
+        visible.insert(visible.end(), rects.begin(), rects.end());
+    }
+    return visible;
 }

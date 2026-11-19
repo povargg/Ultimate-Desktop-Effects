@@ -8,7 +8,7 @@ DATA=(ROOT/'dist/UltimateDesktopEffects.exe').read_bytes()
 SRC=ROOT/'src'
 def check(ok,message):
  if not ok:raise AssertionError(message)
-def text(path):return (SRC/path).read_text()
+def text(path):return (SRC/path).read_text(encoding='utf-8')
 def pixels(path):
  im=Image.open(path).convert('RGBA');return im,[im.getpixel((x,y)) for y in range(im.height) for x in range(im.width)]
 PE=struct.unpack_from('<I',DATA,0x3c)[0];OPT=PE+24;SECTION=OPT+struct.unpack_from('<H',DATA,PE+20)[0];NSECTIONS=struct.unpack_from('<H',DATA,PE+6)[0]
@@ -30,13 +30,14 @@ def imports():
  check(set(names)<=allowed,'external runtime DLLs: '+str(set(names)-allowed));print('    Imports:',', '.join(names))
 def resources():
  base=offset(struct.unpack_from('<I',DATA,OPT+112+16)[0]);types=[struct.unpack_from('<I',DATA,base+16+i*8)[0] for i in range(sum(struct.unpack_from('<HH',DATA,base+12)))];check({3,14,16,24}<=set(types),'missing icon/version/manifest')
- for s in ['UltimateDesktopEffects','1.0.1','povargg','flipkips']:check(s.encode('utf-16le') in DATA,'missing version/author string '+s)
+ version=re.search(r'#define APP_VERSION L"([\d.]+)"',text('common.h')).group(1)
+ for s in ['UltimateDesktopEffects',version,'povargg','flipkips']:check(s.encode('utf-16le') in DATA,'missing version/author string '+s)
  check(b'PerMonitorV2' in DATA and b'asInvoker' in DATA,'manifest missing DPI or privilege declaration')
 def dispatch_binaries():
  for name in ['Portable','Uninstall']:check((ROOT/'dist'/f'UltimateDesktopEffects-{name}.exe').read_bytes()==DATA,'variants differ')
  main=text('main.cpp');check('name.find(L"portable")' in main and 'name.find(L"uninstall")' in main and 'IsInstalledCopy()' in main,'filename dispatch incomplete')
 def one_process():
- allsrc='\n'.join(p.read_text() for p in SRC.rglob('*.cpp'));main=text('main.cpp')
+ allsrc='\n'.join(p.read_text(encoding='utf-8') for p in SRC.rglob('*.cpp'));main=text('main.cpp')
  check(allsrc.count('int WINAPI wWinMain(')==1,'multiple application entry points')
  check(main.count('CreateMutexW(')==1 and main.count('TrayAdd(msgWnd_)')==2,'single host/tray recovery changed')
  check('Local\\\\UltimateDesktopEffects.SingleInstance' in text('common.h'),'wrong mutex identity')

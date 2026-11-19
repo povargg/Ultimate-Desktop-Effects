@@ -26,7 +26,7 @@ using Microsoft::WRL::ComPtr;
 #endif
 
 #define APP_NAME    L"UltimateDesktopEffects"
-#define APP_VERSION L"1.0.1"
+#define APP_VERSION L"1.0.2"
 #define APP_AUTHOR  L"povargg & flipkips"
 #define APP_REPO    L"https://github.com/povargg"
 #define UPSTREAM_REPO L"https://github.com/flipkips/desktop-snow-overlay"

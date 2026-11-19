@@ -52,7 +52,7 @@ The leaves and Halloween sprites are native **16×16 pixel art**. Settled sprite
 
 ## Download
 
-**Current version: 1.0.1 · Windows x64**
+**Current version: 1.0.2 · Windows x64**
 
 | Download | Use |
 | --- | --- |
@@ -129,7 +129,7 @@ Install Visual Studio 2022 Build Tools with the **Desktop development with C++**
 build.bat
 ```
 
-The Visual Studio build recipe is included as an alternative; the published binary was cross-compiled with MinGW-w64.
+For a native Windows MinGW-w64 installation, run `python build_mingw.py --cxx g++`.
 
 Build outputs are placed in `dist/`: the installer, portable executable and uninstaller share the same program bytes and select their mode from their filename or command-line options.
 
@@ -140,13 +140,21 @@ sh run-tests.sh
 python3 tests/release_checks.py
 ```
 
+Run these commands on Windows with MinGW-w64 after creating `build/`.
+
+```powershell
+g++ -std=c++17 tests/tray_tests.cpp -o build/tray_tests.exe
+.\build\tray_tests.exe
+```
+
 Native simulation tests require a C++17 compiler with AddressSanitizer and UndefinedBehaviorSanitizer. Release checks require Python 3, Pillow and the built Windows executables.
 
 - **1.0.0 baseline:** 185 native C++ simulation tests and 15 asset/integration/package checks passed.
 - **1.0.1 update:** 15 release checks plus four targeted text/icon checks passed. The simulation logic was unchanged.
+- **1.0.2 update** passed 188 simulation and settings tests, 11 tray callback tests and 15 package checks. An isolated Windows desktop also verified that both callback formats open the app windows and that the renderer clips snow on maximized displays.
 - Coverage includes effect switching, independent profiles, piles, window movement, mixed display scaling, lightning, spider state transitions and thread cutting.
 
-**Validation limits:** the Windows UI, GPU composition, real mouse-hook delivery and installation were not exercised on a physical Windows desktop in the Linux build environment. Offline previews and simulation tests do not replace those runtime checks.
+The 1.0.2 runtime checks use an isolated Windows test desktop. The callback tests send the same messages as the shell and WinDock directly to the app. Static release checks cover installer dispatch and mouse-hook registration.
 
 Detailed records: [validation](docs/VALIDIERUNG.md), [baseline test log](docs/testprotokoll.txt), [1.0.1 patch notes](docs/PATCH-1.0.1.md) and [patch test log](docs/patch-1.0.1-testprotokoll.txt).
 

@@ -11,8 +11,10 @@ cxx=shutil.which(args.cxx)
 if not cxx: raise SystemExit('MinGW-w64 C++ compiler not found; use --cxx /path/to/x86_64-w64-mingw32-g++-posix')
 cxx=Path(cxx).absolute(); bindir=cxx.parent
 cc=cxx.with_name(cxx.name.replace('g++','gcc'))
-windres=bindir/'x86_64-w64-mingw32-windres'
-strip=bindir/'x86_64-w64-mingw32-strip'
+prefix=cxx.name.partition('g++')[0]
+windres=shutil.which(prefix+'windres',path=str(bindir))
+strip=shutil.which(prefix+'strip',path=str(bindir))
+if not windres or not strip: raise SystemExit('MinGW-w64 windres and strip are required next to the compiler')
 (root/'build').mkdir(exist_ok=True);(root/'dist').mkdir(exist_ok=True)
 if not (root/'res/ultimate.ico').exists(): raise SystemExit('res/ultimate.ico is required')
 env=dict(os.environ);env['PATH']=str(bindir)+os.pathsep+env.get('PATH','')

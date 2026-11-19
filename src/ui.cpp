@@ -1,6 +1,7 @@
 #include "ui.h"
 #include "i18n.h"
 #include "settings.h"
+#include "tray_input.h"
 #include "effects/snow/ui.h"
 #include "effects/rain/ui.h"
 #include "effects/leaves/ui.h"
@@ -25,7 +26,7 @@ bool TrayAdd(HWND owner) {
     g_nid = {};
     g_nid.cbSize = sizeof(g_nid);
     g_nid.hWnd = owner;
-    g_nid.uID = 1;
+    g_nid.uID = kTrayIconId;
     g_nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP | NIF_SHOWTIP;
     g_nid.uCallbackMessage = WM_APP_TRAY;
     g_nid.hIcon = AppIcon(true, GetDpiForSystem());

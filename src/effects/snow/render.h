@@ -19,7 +19,7 @@ public:
 
 private:
     bool CreateSprites();
-    void DrawPiles(const Snow& snow);
+    void DrawPiles(const Snow& snow, const World& world, bool behind);
     void DrawFlakes(const Snow& snow, const World& world, bool behind);
 
     ComPtr<ID3D11Device> d3d_;

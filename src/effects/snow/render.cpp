@@ -1,4 +1,5 @@
 #include "render.h"
+#include "../../occlusion.h"
 
 namespace snowfx {
 
@@ -157,7 +158,15 @@ bool Renderer::CreateSprites() {
     return outline_ && fill_;
 }
 
-void Renderer::DrawPiles(const Snow& snow) {
+static D2D1_RECT_F ClipRect(RectI rect) {
+    return D2D1::RectF((float)rect.l, (float)rect.t, (float)rect.r, (float)rect.b);
+}
+
+void Renderer::DrawPiles(const Snow& snow, const World& world, bool behind) {
+    const bool clipMonitors = behind && std::any_of(world.monitors.begin(), world.monitors.end(),
+        [](const MonitorInfo& monitor) { return monitor.maximized; });
+    if (clipMonitors && std::all_of(world.monitors.begin(), world.monitors.end(),
+        [](const MonitorInfo& monitor) { return monitor.maximized; })) return;
     std::vector<float> top, bot;
     std::vector<D2D1_POINT_2F> pts;
     std::vector<D2D1_QUADRATIC_BEZIER_SEGMENT> segs;
@@ -227,35 +236,65 @@ void Renderer::DrawPiles(const Snow& snow) {
         if (!any) continue;
         fill_->SetStartPoint({0, s.top - std::max(8.0f, s.maxH)});
         fill_->SetEndPoint({0, (float)s.top});
-        dc_->DrawGeometry(edgeGeom.Get(), outline_.Get(), 1.6f * scale_);  // outline only on top and the sides
-        dc_->FillGeometry(fillGeom.Get(), fill_.Get());
+        auto draw = [&] {
+            dc_->DrawGeometry(edgeGeom.Get(), outline_.Get(), 1.6f * scale_); // top and sides only
+            dc_->FillGeometry(fillGeom.Get(), fill_.Get());
+        };
+        if (!clipMonitors) {
+            draw();
+        } else {
+            for (const auto& monitor : world.monitors) {
+                if (monitor.maximized) continue;
+                dc_->PushAxisAlignedClip(ClipRect(monitor.rc), D2D1_ANTIALIAS_MODE_ALIASED);
+                draw();
+                dc_->PopAxisAlignedClip();
+            }
+        }
     }
 }
 
 void Renderer::DrawFlakes(const Snow& snow, const World& world, bool behind) {
     const D2D1_MATRIX_3X2_F identity = D2D1::Matrix3x2F::Identity();
     const bool falling = Cfg().showFalling;
+    const auto visible = behind ? VisibleDesktopRects(world) : std::vector<RectI>{};
+    if (behind && visible.empty()) return;
     for (const Flake& f : snow.flakes) {
         if (!falling && (f.kind == FLAKE_DOT || f.kind == FLAKE_CRYSTAL)) continue;  // only drifts are shown
-        if (behind) {  // "behind windows" mode: hide flakes covered by a window
-            bool hidden = false;
-            for (const auto& wi : world.wins)
-                if (wi.rc.contains(f.x, f.y)) { hidden = true; break; }
-            if (hidden) continue;
+        auto draw = [&] {
+            if (f.kind == FLAKE_CRYSTAL) {
+                // Spin plus a squeeze along one axis, as if the flake turns in 3D
+                float r = f.size * 0.5f;
+                float tumble = 0.55f + 0.45f * std::fabs(std::cos(f.rot * 0.7f + f.phase));
+                dc_->SetTransform(D2D1::Matrix3x2F::Scale(tumble, 1, {f.x, f.y}) *
+                                  D2D1::Matrix3x2F::Rotation(f.rot * 57.29578f, {f.x, f.y}));
+                dc_->DrawBitmap(crystals_[f.variant % kCrystalVariants].Get(),
+                                D2D1::RectF(f.x - r, f.y - r, f.x + r, f.y + r), f.alpha, D2D1_INTERPOLATION_MODE_LINEAR);
+                dc_->SetTransform(identity);
+            } else {
+                float r = f.size * 0.8f;
+                dc_->DrawBitmap(dot_.Get(), D2D1::RectF(f.x - r, f.y - r, f.x + r, f.y + r), f.alpha,
+                                D2D1_INTERPOLATION_MODE_LINEAR);
+            }
+        };
+        if (!behind) {
+            draw();
+            continue;
         }
-        if (f.kind == FLAKE_CRYSTAL) {
-            // Spin plus a squeeze along one axis, as if the flake turns in 3D
-            float r = f.size * 0.5f;
-            float tumble = 0.55f + 0.45f * std::fabs(std::cos(f.rot * 0.7f + f.phase));
-            dc_->SetTransform(D2D1::Matrix3x2F::Scale(tumble, 1, {f.x, f.y}) *
-                              D2D1::Matrix3x2F::Rotation(f.rot * 57.29578f, {f.x, f.y}));
-            dc_->DrawBitmap(crystals_[f.variant % kCrystalVariants].Get(),
-                            D2D1::RectF(f.x - r, f.y - r, f.x + r, f.y + r), f.alpha, D2D1_INTERPOLATION_MODE_LINEAR);
-            dc_->SetTransform(identity);
-        } else {
-            float r = f.size * 0.8f;
-            dc_->DrawBitmap(dot_.Get(), D2D1::RectF(f.x - r, f.y - r, f.x + r, f.y + r), f.alpha,
-                            D2D1_INTERPOLATION_MODE_LINEAR);
+
+        // The dot radius also bounds a rotated crystal, including its corners.
+        const float radius = f.size * 0.8f;
+        const RectI bounds{(int)std::floor(f.x - radius), (int)std::floor(f.y - radius),
+                           (int)std::ceil(f.x + radius), (int)std::ceil(f.y + radius)};
+        for (const RectI rect : visible) {
+            const RectI clip = IntersectRects(bounds, rect);
+            if (clip.w() <= 0 || clip.h() <= 0) continue;
+            if (clip.w() == bounds.w() && clip.h() == bounds.h()) {
+                draw();
+                break;
+            }
+            dc_->PushAxisAlignedClip(ClipRect(clip), D2D1_ANTIALIAS_MODE_ALIASED);
+            draw();
+            dc_->PopAxisAlignedClip();
         }
     }
 }
@@ -265,8 +304,9 @@ bool Renderer::Draw(const Snow& snow, const World& world) {
     dc_->BeginDraw();
     dc_->SetTransform(D2D1::Matrix3x2F::Identity());
     dc_->Clear(D2D1::ColorF(0, 0, 0, 0));
-    DrawPiles(snow);
-    DrawFlakes(snow, world, Cfg().mode == MODE_BEHIND);
+    const bool behind = Cfg().mode == MODE_BEHIND;
+    DrawPiles(snow, world, behind);
+    DrawFlakes(snow, world, behind);
     HRESULT hr = dc_->EndDraw();
     if (hr == (HRESULT)D2DERR_RECREATE_TARGET) return false;
     hr = swap_->Present(1, 0);

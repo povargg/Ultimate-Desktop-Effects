@@ -36,9 +36,9 @@ static BOOL CALLBACK EnumWinProc(HWND hwnd, LPARAM lp) {
             return TRUE;  // fully transparent window
     }
 
-    RECT r;
-    if (FAILED(DwmGetWindowAttribute(hwnd, DWMWA_EXTENDED_FRAME_BOUNDS, &r, sizeof(r))))
-        GetWindowRect(hwnd, &r);
+    RECT r{};
+    if (FAILED(DwmGetWindowAttribute(hwnd, DWMWA_EXTENDED_FRAME_BOUNDS, &r, sizeof(r))) && !GetWindowRect(hwnd, &r))
+        return TRUE;
     if (!taskbar && (r.right - r.left < 100 || r.bottom - r.top < 40)) return TRUE;
 
     const RectI& v = ctx->w->virt;
@@ -48,6 +48,7 @@ static BOOL CALLBACK EnumWinProc(HWND hwnd, LPARAM lp) {
     wi.taskbar = taskbar;
     wi.transient = !taskbar && ((ex & WS_EX_TOOLWINDOW) || !wcscmp(cls, L"Windows.UI.Core.CoreWindow") ||
                                 !wcscmp(cls, L"#32768"));
+    wi.maximized = !taskbar && IsZoomed(hwnd);
     if (taskbar && ctx->w->firstTaskbarZ < 0) ctx->w->firstTaskbarZ = (int)ctx->w->wins.size();
     ctx->w->wins.push_back(wi);
     return TRUE;
@@ -62,6 +63,9 @@ static BOOL CALLBACK EnumMonProc(HMONITOR mon, HDC, LPRECT, LPARAM lp) {
     m.rc   = {mi.rcMonitor.left - v.l, mi.rcMonitor.top - v.t, mi.rcMonitor.right - v.l, mi.rcMonitor.bottom - v.t};
     m.work = {mi.rcWork.left - v.l, mi.rcWork.top - v.t, mi.rcWork.right - v.l, mi.rcWork.bottom - v.t};
     m.groundY = m.work.b < m.rc.b ? m.work.b : m.rc.b;
+    m.maximized = std::any_of(w->wins.begin(), w->wins.end(), [mon](const WinInfo& window) {
+        return window.maximized && MonitorFromWindow(window.hwnd, MONITOR_DEFAULTTONULL) == mon;
+    });
     UINT dx = 96, dy = 96;
     if (SUCCEEDED(GetDpiForMonitor(mon, MDT_EFFECTIVE_DPI, &dx, &dy))) m.scale = dx / 96.0f;
     w->monitors.push_back(m);

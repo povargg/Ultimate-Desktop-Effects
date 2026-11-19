@@ -7,6 +7,7 @@ struct WinInfo {
     RectI rc;
     bool  taskbar;
     bool  transient;  // popups: Start, search, menus, notification panels
+    bool  maximized = false;
 };
 
 struct MonitorInfo {
@@ -14,6 +15,7 @@ struct MonitorInfo {
     RectI work;    // work area (without the taskbar)
     int   groundY; // ground level: top of the taskbar or bottom of the screen
     float scale = 1; // Windows display scale on this monitor (1.5 = 150%)
+    bool maximized = false; // a visible window is maximized on this monitor
     float LogicalArea() const { return rc.w() * rc.h() / (scale * scale); }
 };
 
