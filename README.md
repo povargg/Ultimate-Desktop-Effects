@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/ultimate-desktop-effects-transparent.png" alt="Ultimate Desktop Effects icon" width="112" height="112">
+<img src="docs/images/ultimate-desktop-effects-icon.png" alt="Ultimate Desktop Effects icon" width="112" height="112">
 
 # Ultimate Desktop Effects
 
@@ -52,7 +52,7 @@ The leaves and Halloween sprites are native **16×16 pixel art**. Settled sprite
 
 ## Download
 
-**Current version: 1.0.4 · Windows x64**
+**Current version: 1.0.5 · Windows x64**
 
 From version 1.0.3, use **Check for updates** in the notification area menu. The app checks GitHub in the background, verifies the download with SHA-256 and restarts after you confirm installation. If you have an installation older than 1.0.3, install this release once to enable in-app updates.
 

@@ -1,8 +1,12 @@
-# Ultimate Desktop Effects 1.0.4
+# Ultimate Desktop Effects 1.0.5
 
 **Von [povargg](https://github.com/povargg) und [flipkips](https://github.com/flipkips/desktop-snow-overlay).** Die Windows-Grundlage und der Schnee stammen aus LayerSnow von flipkips; Regen, Blätter, Halloween und die gemeinsame Anwendung bauen darauf auf. MIT-Lizenz.
 
 Eine Windows-App mit vier direkt umschaltbaren Effekten: **Schnee, Regen, Blätter und Halloween**. Alle bisherigen Effektparameter bleiben verfügbar. Sprache, Installation, Tray-Symbol und Windows-Autostart werden gemeinsam verwaltet.
+
+## Änderungen in 1.0.5
+
+Das neue App-Symbol hebt das UE-Monogramm und die Lichterkette hervor. Es ist auch im kleinen Infobereich gut erkennbar.
 
 ## Änderungen in 1.0.4
 
