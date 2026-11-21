@@ -1,6 +1,6 @@
 {
   "app": "Ultimate Desktop Effects",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "target": "Windows 10 1703+ and Windows 11 x64",
   "date": "2026-11-21",
   "authors": [
@@ -45,28 +45,29 @@
       "SHA-256 known digest",
       "Rollback on invalid executable",
       "Self-replacement, restart and removal of the previous executable on Windows"
-    ]
+    ],
+    "transparent_icon_frames": 9
   },
   "compiler": "MinGW-w64 GCC 15.2.0 (POSIX threads, Windows x64)",
   "digitally_signed": false,
   "executables": [
     {
       "file": "Ultimate-Desktop-Effects-x64.exe",
-      "bytes": 2158302,
-      "sha256": "fb78580cf35f8e4f1703ced7429f1138e7a85f6de9e632c451e09f253ed73cbc"
+      "bytes": 2155742,
+      "sha256": "c44d38a6fca0fba964720c94f8cabb7e18caa2e4295bf8b08fe7dd73d1790f45"
     },
     {
       "file": "Ultimate-Desktop-Effects-Portable.exe",
-      "bytes": 2158302,
-      "sha256": "fb78580cf35f8e4f1703ced7429f1138e7a85f6de9e632c451e09f253ed73cbc"
+      "bytes": 2155742,
+      "sha256": "c44d38a6fca0fba964720c94f8cabb7e18caa2e4295bf8b08fe7dd73d1790f45"
     }
   ],
   "source_sha256": {
     ".github/workflows/release.yml": "48285872056d66cf886d3521ba117ec52cdb0005e8bb0d6429c6c49e2997a54b",
     ".gitignore": "3fc232e1887a621cc2c7d6a5c6ec4b7efb8268256cd61db81feedaf787beafe9",
     "LICENSE": "8910150bcf4a54d656cdb1e46804e4633116a3c7185abadce0199dd3c8467d10",
-    "README.de.md": "407264838f403a0c0fa24b04d249edacc3d6b7bae740825fc1e990c7044101fd",
-    "README.md": "98a93afce057ac514251abcb80dea9bba24d4c5e7465fa95dcf471643e511f28",
+    "README.de.md": "0421322997d10cf56c38157e5dc9079c8ecbfa2185d8a5f8d2d611bcdc5afb6d",
+    "README.md": "1ad16a41a61bb34374580c97a7aeb8a85fda043d4e9985994969ef49b3da5365",
     "build.bat": "f787a551cc5d05ed5e72b831dbf0fd3caa89a6e6e8aa40c08bca308744b3c6de",
     "build_mingw.py": "cf9ddd792d9212ad3eee4729385ed1dcc23914321b37f15e01d5059bf2c7a99c",
     "docs/ARCHITEKTUR.md": "87c036422aa9f7fdf66cd4f0f8f6a8e2d969e9f34250a45bd5e05fc80d0db3bb",
@@ -79,7 +80,7 @@
     "docs/figures/desktop-snow.webp": "b681a07c3ca25a086a1bcc3d162fd9d64b17dcaca450215856e9891635131e13",
     "docs/figures/offline-effekte.png": "54d7f0eb9f6e583912ba00a0d54682b9dc9847f9fec2d8c766625cf087f0e6ba",
     "docs/images/ue-chef-logo.png": "7a7c7fa82b82b7c0d6ec527ecf98df89ba64aa9245baad192236f32071e40941",
-    "docs/images/ultimate-desktop-effects.png": "caa9784ef23fefb885d262bdd332b95835fe0335f24650ca6f7606ab762a48c5",
+    "docs/images/ultimate-desktop-effects-transparent.png": "1b2d904cec8a0784f47a7b60ebf68c552391bc692ef393e6c139446fe8ff592e",
     "docs/patch-1.0.1-testprotokoll.txt": "7ffcf7581c34f5fd6e414b7671e2384cf92880b4f6f4c406816ef27e40669030",
     "docs/source-provenance.json": "db3139495ee0b9ccd3737926d9becf8d83e0d2f852a9680cbc5fd4ba41ad6065",
     "docs/testprotokoll.txt": "a14bc0be37f91384ef9f3367ef4db8fc7615128737ce55d74b1e38e420c8bf64",
@@ -87,7 +88,7 @@
     "licenses/GCC-RUNTIME-NOTICES.txt": "a481f772f7a53335f13b32c6c54eb1c8577ce97704edd3757ab7ed4287a8e96a",
     "licenses/MinGW-w64-NOTICES.txt": "af23297b7d17e8e31817a5d58088de6fdafe34705bb5a7d1d330f08711b31314",
     "res/app.manifest": "31cfc3926daa5e12d912d639ab7d52ba7fc567ff5748d4060de91e5676de467c",
-    "res/app.rc": "329337eb7f3325fdd512cb54be43fdcdf3c204af7b4282cb6c80a934ead6d172",
+    "res/app.rc": "565ba21ec0f0bfe0e98d6580a44f98d30eb1baa93758bab330a1065b044f97fe",
     "res/halloween/generated/candy-sheet.png": "95b8a445250048033050ecc72fd3e07d8a5cef840f9d20985c0eb2dc362e7b46",
     "res/halloween/generated/prompts.json": "a5c634954f69850d67476ba0dee983bbfb84ff2789a5e3b0d8aeba08370d65c0",
     "res/halloween/generated/spiders-sheet.png": "009e51690eea4264de95e9475202f2b7d10bb869942ad33076b5ae20812ff4ac",
@@ -129,11 +130,11 @@
     "res/rain/rain.ico": "c774524bdd98cfedaaec856bf49589669eec91b35dd4ce7b9e2a0c261284610f",
     "res/snow/snow.ico": "f6d7c830fe2a857a828675d68986e2dfc4d094ab1deb79e5f3b1e98fd0dbe1e5",
     "res/snow/snow_preview.png": "c842c976eda7dd009abbaa7c322dc77edd1ba0386e76e96f4fcbae72ead93796",
-    "res/ultimate.ico": "d1a1857d9fc523213f3f877b57c508cdcfc35bdd190a1ce87bf7186592b715fa",
+    "res/ultimate.ico": "32c28b8041acad1942b36d20fb973e4d6f647180552c8093e1900f39996a09b4",
     "run-suite-tests.sh": "5311d048e81ba625bfda184f298e416f360eafedb55eb4d1c5a8c59b2a2e5d63",
     "run-tests.sh": "d96b35765be54f9a2928af6d9317deb5702e5240b31c9319428b11a967bb75c2",
     "scripts/package-release.ps1": "2336a89f3bd766bc88b7bbeff3c5c20ce442c8a676bb5a471dfd12473579903f",
-    "src/common.h": "0fb38fce8fcd8d45cb34ab3e6e068c820145e7ae4bc1bb39efdcd6842ec75d06",
+    "src/common.h": "bcf334506293cae0af026adef242821fc5a1ec20c8b84ed4bd58547ae31f2f01",
     "src/config.cpp": "a2e7d41024d13d4e1e740c3483aa51f3d10f46e577c5ccbc252137e452843074",
     "src/effect_selector.h": "581886b9d5327cf279b27bead03df61b10937da3546a351b8b938353e5275b74",
     "src/effects.cpp": "c8d4b3e0bc56b8e364fab4396b75169a741553f1f4f8542c1ed2f7b840ce9749",
@@ -201,7 +202,7 @@
     "src/effects/snow/ui.h": "92f5817c7c898d0b507f70f90e7a150954a91afef0a24fb7db7e901930624b19",
     "src/i18n.cpp": "bd2d126ce5ab7edd36cdd9c0ca423b7141e9063c08152b1684186f9c5b0612ac",
     "src/i18n.h": "6271e7f42020f4a33a5faddfd39b0c1d666ad42be4a7b673e7d2c008ebc25904",
-    "src/install.cpp": "f5b2829566e32b0c8fd8c5e2d6ab5d89ab555b1a97e1ea743202bce4e39c2bd3",
+    "src/install.cpp": "fdee01ef42a0316926d34af42b7cf25144e7e6fa6ed1b1edcbbacdd5aa28f800",
     "src/install.h": "a298a934f1b5d75281e252eb10e261d7d7197f60c590413dae2c0e7955eea5c2",
     "src/license.h": "07d13d75a12f53be139584aa7ad4db6953a8721dfbf60dd008bf0b0850abb152",
     "src/main.cpp": "0e3a5cf761d38cd2e1c56f03496e1fc1a88722d19f7a75ec14ad576b16d38d5f",
@@ -231,7 +232,7 @@
     "tests/update_tests.cpp": "5ede5805aa3dacd579ac5cc3ed69fc90ff6bf158cc7102101ab4c614f8b98a5a",
     "tests/win_stub.h": "dbf14b4cbaba54a3434cf69dff177d0c61d20eb7bc6ce40662d3df80b252e615",
     "tools/inspect.sh": "7b4adb3b212f025fee7656227b1694b8840f43837cd44a251a13c30cfd03e34f",
-    "tools/make_icon.py": "8b32a0afc2dbd16555424967964467153208337bc8847eeac400981dfe4ffe6f",
+    "tools/make_icon.py": "373841055097a19d0278fe2e85734751c67d89f126c2f0e92becd05c37715b2d",
     "tools/preview.py": "10b4ff7fe821ef5583dc2dbebbbc03c27180fa8c2e915c8f73101fdafd02fcc9"
   },
   "based_on": "1.0.1",

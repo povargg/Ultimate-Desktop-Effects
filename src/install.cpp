@@ -143,6 +143,7 @@ static std::wstring DoInstall(bool autostart, bool desktop) {
     SetAutostart(autostart, exe);
     SaveSettings();  // keeps the language picked in the installer
     WriteRegistration(dir, exe, unins);
+    SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATHW, exe.c_str(), nullptr);
     return L"";
 }
 
