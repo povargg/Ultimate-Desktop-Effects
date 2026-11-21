@@ -1,8 +1,14 @@
 # Ultimate Desktop Effects 1.0.5
 
-**Von [povargg](https://github.com/povargg) und [flipkips](https://github.com/flipkips/desktop-snow-overlay).** Die Windows-Grundlage und der Schnee stammen aus LayerSnow von flipkips; Regen, Blätter, Halloween und die gemeinsame Anwendung bauen darauf auf. MIT-Lizenz.
+[English](README.md) · **Deutsch** · [Русский](README.ru.md)
 
-Eine Windows-App mit vier direkt umschaltbaren Effekten: **Schnee, Regen, Blätter und Halloween**. Alle bisherigen Effektparameter bleiben verfügbar. Sprache, Installation, Tray-Symbol und Windows-Autostart werden gemeinsam verwaltet.
+Schnee bleibt auf Fenstern liegen, Regen sammelt sich an der Taskleiste, und
+Blätter treiben über den Desktop. Im Halloween-Modus fallen Pixel-Süßigkeiten,
+und Spinnen seilen sich an Fäden ab. Alle vier Effekte lassen sich im
+Einstellungsfenster oder über das Menü im Infobereich wechseln.
+
+Jeder Effekt hat eigene Einstellungen. Sprache, Installation, das Symbol im
+Infobereich und der Windows-Autostart werden für die gesamte App verwaltet.
 
 ## Änderungen in 1.0.5
 
@@ -14,7 +20,7 @@ Das App-Symbol hat jetzt einen transparenten Hintergrund.
 
 ## Änderungen in 1.0.3
 
-Das Infobereichsmenü enthält **Nach Updates suchen**. Die App prüft GitHub im Hintergrund, verifiziert den Download per SHA-256 und startet nach der Bestätigung neu. Bei einer älteren Version muss 1.0.3 einmal installiert werden.
+Das Infobereichsmenü enthält **Nach Updates suchen**. Die App prüft GitHub im Hintergrund, verifiziert den Download per SHA-256 und startet nach der Bestätigung neu. Bei Versionen vor 1.0.3 ist einmalig die manuelle Installation einer aktuellen Version erforderlich.
 
 ## Änderungen in 1.0.2
 
@@ -25,9 +31,9 @@ Das Infobereichsmenü enthält **Nach Updates suchen**. Die App prüft GitHub im
 
 | Datei | Verwendung |
 | --- | --- |
-| `Ultimate-Desktop-Effects-x64.exe` | Doppelklick öffnet die einmalige Installation. Danach über das Startmenü oder die installierte EXE starten. |
-| `Ultimate-Desktop-Effects-Portable.exe` | Per Doppelklick sofort starten. Der Dateiname muss `Portable` enthalten. |
-| `Ultimate-Desktop-Effects-Source.zip` | Vollständiger C++17-Quellcode, Pixelgrafiken, Tests, Buildskripte und Dokumentation. |
+| [`Ultimate-Desktop-Effects-x64.exe`](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-x64.exe) | Doppelklick öffnet die einmalige Installation. Danach über das Startmenü oder die installierte EXE starten. |
+| [`Ultimate-Desktop-Effects-Portable.exe`](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Portable.exe) | Per Doppelklick sofort starten. Der Dateiname muss `Portable` enthalten. |
+| [`Ultimate-Desktop-Effects-Source.zip`](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Source.zip) | Vollständiger C++17-Quellcode, Pixelgrafiken, Tests, Buildskripte und Dokumentation. |
 
 Windows 10 ab Version 1703 und Windows 11, **64 Bit**, mit Direct3D-11-Unterstützung. Es werden keine zusätzlichen .NET-, Python- oder Visual-C++-Laufzeitpakete zum Ausführen benötigt.
 
@@ -39,7 +45,14 @@ Das Symbol im Infobereich öffnet mit **Linksklick** die Einstellungen, mit **Re
 
 Die gemeinsame Auswahl **Schnee / Regen / Blätter / Halloween** befindet sich oben im Hauptfenster, in den zusätzlichen Einstellungsfenstern und im Schnellmenü. Beim Wechsel werden die passenden Einstellungen angezeigt. Eine weitere Installation ist dafür nicht erforderlich.
 
-Jeder Effekt besitzt ein eigenes Profil für Dichte, Geschwindigkeit, Wind, Ansammlung, Bildrate und seine besonderen Einstellungen. Die laufende Szene des bisherigen Effekts pausiert einschließlich Ansammlungen und wird bei der Rückkehr fortgesetzt. Nur die ausgewählte Szene wird berechnet und gezeichnet. Beim Beenden werden die Einstellungen und die letzte Effektauswahl gespeichert; nach einem Programmneustart bauen sich die Ansammlungen neu auf, wie bei den Einzelversionen.
+Für jeden Effekt lassen sich Dichte, Geschwindigkeit, Wind, Ansammlungen,
+Bildrate und die besonderen Optionen getrennt einstellen. Beim Wechsel
+pausiert die bisherige Szene mit ihren Partikeln und Ansammlungen. Bei der
+Rückkehr läuft sie an derselben Stelle weiter. Berechnet und gezeichnet wird
+jeweils die ausgewählte Szene.
+
+Beim Beenden speichert die App die Einstellungen und den zuletzt ausgewählten
+Effekt. Nach einem Programmneustart bauen sich die Ansammlungen neu auf.
 
 | Schnee | Regen |
 | :---: | :---: |
@@ -51,10 +64,10 @@ Jeder Effekt besitzt ein eigenes Profil für Dichte, Geschwindigkeit, Wind, Ansa
 
 | Effekt | Erhaltene Funktionen |
 | --- | --- |
-| Schnee, ursprünglich LayerSnow / „SnowLayer“ | Weiche Flocken und vier Kristallformen, vier Schnee-Voreinstellungen, Wind, Schneeverwehungen, Schmelzen, Abrutschen und Abschütteln |
-| Regen | Tropfen, große Tropfen, Spritzer, Wasserflächen und Wellen, Verdunstung, vier Regen-Voreinstellungen, optionale Blitze und optionaler Bildschirmblitz |
-| Blätter | Sakura, grüne Frühlings-/Sommerblätter und Herbstblätter, je vier Pixelvarianten, Schwingen, Taumeln und die korrigierten dichten Ansammlungen mit voller Motivfläche |
-| Halloween | Sechs Pixel-Süßigkeiten und vier Spinnentypen, Süßigkeiten / Spinnen / Beides, langsames Abseilen, teilweiser Abstieg, Hängepause, 50/50-Hochklettern oder Fallenlassen und abschneidbare Fäden |
+| Schnee, ursprünglich LayerSnow / „SnowLayer“ | Weiche Flocken und vier Kristallformen fallen mit dem Wind und sammeln sich auf Fenstern und der Taskleiste. Der Schnee kann schmelzen, abrutschen oder abgeschüttelt werden. Vier Voreinstellungen stehen zur Auswahl. |
+| Regen | Kleine und große Tropfen spritzen auf und bilden Wasserflächen mit Wellen, die nach und nach verdunsten. Es gibt vier Regen-Voreinstellungen. Blitze und das Aufleuchten des Bildschirms lassen sich getrennt einschalten. |
+| Blätter | Zur Auswahl stehen Sakura-Blüten, grüne Frühlings- und Sommerblätter sowie Herbstlaub. Die jeweils vier Pixelvarianten schwingen und taumeln beim Fallen. In Ansammlungen überlappen sie sich, wobei die Motivfläche vollständig gezeichnet wird. |
+| Halloween | Es gibt sechs Pixel-Süßigkeiten und vier Spinnentypen. Süßigkeiten und Spinnen können getrennt oder zusammen angezeigt werden. Die Spinnen seilen sich langsam ab, halten manchmal auf halber Höhe an und klettern nach einer Pause mit gleicher Wahrscheinlichkeit wieder hoch oder lassen sich fallen. Ein Klick auf einen sichtbaren Faden schneidet ihn durch. |
 
 Die bisherigen Funktionen für vor/hinter Fenstern, Fenster- und Taskleistenansammlungen, Mauswind, Wegfegen mit dem Cursor, Abschütteln, Vollbildpause, Deckkraft und Bildrate bleiben beim jeweiligen Effekt erhalten. Nur Halloween wertet Fadentreffer aus. Unsichtbare oder durch Vordergrundfenster verdeckte Fäden sind nicht anklickbar. Normale Klicks werden weitergereicht; ein erfolgreicher Schnitt verbraucht den betreffenden Linksklick.
 
@@ -105,6 +118,11 @@ Der native Testlauf benötigt einen C++17-Compiler mit AddressSanitizer und Unde
 Die Windows-EXE wurde erfolgreich ohne Compilerwarnungen erstellt. In der verfügbaren Linux-Umgebung konnten die Windows-Oberfläche, tatsächliche Maus-Hook-Zustellung, Installation und GPU-Komposition nicht praktisch ausgeführt werden. Die EXE ist nicht digital signiert. Die Offline-Vorschauen zeigen echte Simulationsdaten mit vereinfachter Zeichnung und sind keine Windows-Bildschirmaufnahmen.
 
 ## Quellcode und Herkunft
+
+Das Windows-Overlay und der ursprüngliche Schneeeffekt stammen aus
+[LayerSnow](https://github.com/flipkips/desktop-snow-overlay) von [flipkips](https://github.com/flipkips).
+[povargg](https://github.com/povargg) entwickelte die Effekte für Regen, Blätter
+und Halloween und fasste sie mit dem Schneeeffekt in einer Anwendung zusammen.
 
 - [docs/ARCHITEKTUR.md](docs/ARCHITEKTUR.md): gemeinsamer Host, Effektwechsel, Profile und Ressourcennutzung.
 - [docs/VALIDIERUNG.md](docs/VALIDIERUNG.md): Prüffälle, Leistungswerte und Grenzen.

@@ -4,9 +4,11 @@
 
 # Ultimate Desktop Effects
 
-**Snow, rain, falling leaves and Halloween — four desktop effects in one native Windows app.**
+**Snow, rain, falling leaves, and Halloween effects for the Windows desktop.**
 
-[**Download for Windows**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-x64.exe) · [**Portable version**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Portable.exe) · [**All releases**](https://github.com/povargg/Ultimate-Desktop-Effects/releases) · [**Deutsch**](README.de.md)
+[**Download for Windows**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-x64.exe) · [**Portable version**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Portable.exe) · [**All releases**](https://github.com/povargg/Ultimate-Desktop-Effects/releases)
+
+**English** · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 Windows 10 / 11 · x64 · C++17 · MIT license
 
@@ -14,11 +16,11 @@ Created by **[povargg](https://github.com/povargg)**, building on **[flipkips’
 
 </div>
 
-## Your desktop, with a change of season
+## What you can do
 
-Let snow build up on your windows, watch rain collect above the taskbar, scatter pixel leaves across the screen, or add Halloween sweets and spiders. Switch between all four effects from the settings window or tray menu, with no additional installation.
+Snow settles on your windows, rain collects along the taskbar, and pixel leaves drift across the screen. In Halloween mode, sweets fall and spiders come down on threads. You can switch between all four effects from the settings window or tray menu.
 
-Each effect keeps its own settings. When you switch away, its scene pauses; return to it to continue the same falling particles and piles. Only the selected effect runs and draws.
+Each effect keeps its own settings. If you switch away, the scene pauses where it is, right down to the particles and piles. Switch back and it picks up where it stopped. Only the selected effect runs and draws.
 
 | Snow | Rain |
 | :---: | :---: |
@@ -32,10 +34,10 @@ Each effect keeps its own settings. When you switch away, its scene pauses; retu
 
 | Effect | What it does |
 | --- | --- |
-| **Snow** | Soft flakes and four crystal shapes, wind and gusts, snowdrifts on windows and the taskbar, melting, sliding clumps and four snowfall presets. |
-| **Rain** | Falling drops, splashes, collected water, animated waves and evaporation. Optional lightning, adjustable branches and brightness, and a separate screen-flash switch. |
-| **Leaves** | Pink sakura petals, green spring/summer leaves, and yellow/orange/red autumn leaves. Four pixel variants per type, with swaying, tumbling and dense overlapping piles. |
-| **Halloween** | Six pixel sweets and four spider types. Choose sweets, spiders or both. Spiders descend on threads, sometimes stop partway, pause, then have an equal chance to climb back up or drop. **Click a visible thread to cut it.** |
+| **Snow** | Soft flakes and four crystal shapes make up the snowfall. Wind and gusts move it around, and drifts on windows and the taskbar can melt or slide off in clumps. There are four snowfall presets. |
+| **Rain** | Drops splash and collect into pools with waves, then evaporate. You can turn on lightning, adjust its branches and brightness, and toggle the screen flash on its own. |
+| **Leaves** | Pick pink sakura petals, green spring and summer leaves, or yellow, orange, and red autumn leaves. Each type has four pixel variants that sway, tumble, and pile up on top of each other. |
+| **Halloween** | There are six pixel sweets and four types of spiders. You can show just sweets, just spiders, or both. Spiders come down on threads, sometimes pause partway, and have an equal chance to climb back up or drop. **Click a visible thread to cut it.** |
 
 ### Shared controls
 
@@ -70,7 +72,7 @@ The release is **not digitally signed**.
 
 1. Download the installer or portable executable above.
 2. Open it. The installer uses your user account and does not require administrator rights.
-3. Find the **UE chef-hat icon** in the notification area.
+3. Find the **UE icon** in the notification area.
 4. **Left-click** it for settings, or **right-click** for the quick menu.
 5. Pick **Snow / Rain / Leaves / Halloween** at the top of the panel.
 
@@ -164,7 +166,7 @@ Detailed records: [validation](docs/VALIDIERUNG.md), [baseline test log](docs/te
 
 ```text
 src/          Shared application, settings, renderer dispatcher and effect modules
-res/          Windows resources, original pixel art and UE chef-hat icon
+res/          Windows resources, original pixel art and application icon
 tests/       Native simulation and release verification tests
 tools/       Asset preparation, offline preview and inspection tools
 docs/        Architecture, provenance, validation and preview images
