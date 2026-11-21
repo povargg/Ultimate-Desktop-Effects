@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image
 import hashlib,json,re,struct
 ROOT=Path(__file__).resolve().parents[1]
-DATA=(ROOT/'dist/UltimateDesktopEffects.exe').read_bytes()
+DATA=(ROOT/'dist/Ultimate-Desktop-Effects-x64.exe').read_bytes()
 SRC=ROOT/'src'
 def check(ok,message):
  if not ok:raise AssertionError(message)
@@ -26,15 +26,15 @@ def imports():
  at=offset(struct.unpack_from('<I',DATA,OPT+112+8)[0]);names=[]
  while any(DATA[at:at+20]):
   start=offset(struct.unpack_from('<I',DATA,at+12)[0]);names.append(DATA[start:DATA.index(0,start)].decode().lower());at+=20
- allowed={'advapi32.dll','comctl32.dll','d2d1.dll','d3d11.dll','dcomp.dll','dwmapi.dll','dwrite.dll','dxgi.dll','gdi32.dll','kernel32.dll','msvcrt.dll','ole32.dll','shell32.dll','shcore.dll','user32.dll','uxtheme.dll'}
+ allowed={'advapi32.dll','comctl32.dll','d2d1.dll','d3d11.dll','dcomp.dll','dwmapi.dll','dwrite.dll','dxgi.dll','gdi32.dll','kernel32.dll','msvcrt.dll','ole32.dll','shell32.dll','shcore.dll','user32.dll','uxtheme.dll','winhttp.dll','bcrypt.dll'}
  check(set(names)<=allowed,'external runtime DLLs: '+str(set(names)-allowed));print('    Imports:',', '.join(names))
 def resources():
  base=offset(struct.unpack_from('<I',DATA,OPT+112+16)[0]);types=[struct.unpack_from('<I',DATA,base+16+i*8)[0] for i in range(sum(struct.unpack_from('<HH',DATA,base+12)))];check({3,14,16,24}<=set(types),'missing icon/version/manifest')
  version=re.search(r'#define APP_VERSION L"([\d.]+)"',text('common.h')).group(1)
- for s in ['UltimateDesktopEffects',version,'povargg','flipkips']:check(s.encode('utf-16le') in DATA,'missing version/author string '+s)
+ for s in ['Ultimate Desktop Effects',version,'povargg','flipkips']:check(s.encode('utf-16le') in DATA,'missing version/author string '+s)
  check(b'PerMonitorV2' in DATA and b'asInvoker' in DATA,'manifest missing DPI or privilege declaration')
 def dispatch_binaries():
- for name in ['Portable','Uninstall']:check((ROOT/'dist'/f'UltimateDesktopEffects-{name}.exe').read_bytes()==DATA,'variants differ')
+ for name in ['Portable','Uninstall']:check((ROOT/'dist'/f'Ultimate-Desktop-Effects-{name}.exe').read_bytes()==DATA,'variants differ')
  main=text('main.cpp');check('name.find(L"portable")' in main and 'name.find(L"uninstall")' in main and 'IsInstalledCopy()' in main,'filename dispatch incomplete')
 def one_process():
  allsrc='\n'.join(p.read_text(encoding='utf-8') for p in SRC.rglob('*.cpp'));main=text('main.cpp')
@@ -42,7 +42,7 @@ def one_process():
  check(main.count('CreateMutexW(')==1 and main.count('TrayAdd(msgWnd_)')==2,'single host/tray recovery changed')
  check('Local\\\\UltimateDesktopEffects.SingleInstance' in text('common.h'),'wrong mutex identity')
  check(not re.search(r'(?:LayerRain|LayerLeaves|LayerHalloween|LayerSnow)(?:-Portable|-Setup)?\.exe',allsrc),'standalone program launch/reference found')
- check(allsrc.count('CreateProcessW(')==1,'unexpected child process path')
+ check(allsrc.count('CreateProcessW(')==2 and 'PROC_THREAD_ATTRIBUTE_HANDLE_LIST' in text('update.cpp'),'unexpected child process path')
 def renderer_lifetime():
  render=text('render.cpp');body=render.split('bool Renderer::Init',1)[1]
  check(body.index('Shutdown();')<body.index('active_=effect'),'old GPU resources not released before selecting')
@@ -61,7 +61,7 @@ def selectors():
  main=text('main.cpp').split('case WM_APP_EFFECT:',1)[1].split('case WM_APP_LIGHTNING:',1)[0]
  check(main.index('UpdateMouseHook(false)')<main.index('scene_.Select') and 'CloseUi();' in main and 'renderer_.Shutdown();' in main,'switch cleanup is incomplete')
 def languages():
- expected={'':99,'effects/snow/':72,'effects/rain/':88,'effects/leaves/':83,'effects/halloween/':94}
+ expected={'':106,'effects/snow/':72,'effects/rain/':88,'effects/leaves/':83,'effects/halloween/':94}
  for folder,count in expected.items():
   code=text(folder+'i18n.cpp');rows=re.findall(r'^\s*\{((?:L"(?:[^"\\]|\\.)*"\s*,?\s*)+)\},?',code,re.M)
   check(len(rows)==count,folder+' translation row count')
@@ -110,14 +110,14 @@ def dense_piles_and_layout():
 def mouse_and_messages():
  main=text('main.cpp');check('scene_.CanCutThreads()||cutButtonHeld_' in main and 'CallNextHookEx' in main and 'UiContainsPoint(screen)' in main,'hook scope/forwarding absent')
  check('active_==EFFECT_HALLOWEEN&&halloween.CutWebAt' in text('effects.cpp'),'cut can reach inactive effect')
- ids=re.findall(r'#define WM_APP_\w+\s+\(WM_APP \+ (\d+)\)',text('common.h'));check(len(ids)==11 and len(set(ids))==11,'message IDs overlap')
+ ids=re.findall(r'#define WM_APP_\w+\s+\(WM_APP \+ (\d+)\)',text('common.h'));check(len(ids)==12 and len(set(ids))==12,'message IDs overlap')
 def physics_fidelity():
  hashes=json.loads((ROOT/'docs/source-provenance.json').read_text())['simulation_body_sha256']
  for relative,digest in hashes.items():
   effect=relative.split('/')[0];body=text('effects/'+relative);body=body.split('namespace '+effect+'fx {\n',1)[1].rsplit('} // namespace '+effect+'fx',1)[0]
   normalized='\n'.join(line.strip() for line in body.splitlines() if line.strip() and not line.startswith('#include'))
   check(hashlib.sha256(normalized.encode()).hexdigest()==digest,'original simulation changed: '+relative)
-checks=[('Windows x64 GUI executable and memory-protection flags',pe_architecture),('only Windows system DLL dependencies',imports),('icon, DPI manifest, version and author resources',resources),('setup / portable / uninstall binary dispatch',dispatch_binaries),('one application process, entry point, mutex and tray',one_process),('inactive renderer GPU resources are released',renderer_lifetime),('all settings / extra windows / tray menus have the effect selector',selectors),('all 436 translation rows have five language columns',languages),('both authors and MIT notices are visible and preserved',authors),('every original profile field is persisted; atomic write and migration',settings),('all 22 original pixel sprites preserve their native format',asset_format),('PNG, C++ array and EXE pixels are byte-identical',pixel_identity),('full-face dense piles and shifted UI geometry',dense_piles_and_layout),('Halloween-only mouse hook and unique host messages',mouse_and_messages),('all nine original simulation bodies remain unchanged',physics_fidelity)]
+checks=[('Windows x64 GUI executable and memory-protection flags',pe_architecture),('only Windows system DLL dependencies',imports),('icon, DPI manifest, version and author resources',resources),('setup / portable / uninstall binary dispatch',dispatch_binaries),('one application process, entry point, mutex and tray',one_process),('inactive renderer GPU resources are released',renderer_lifetime),('all settings / extra windows / tray menus have the effect selector',selectors),('all 443 translation rows have five language columns',languages),('both authors and MIT notices are visible and preserved',authors),('every original profile field is persisted; atomic write and migration',settings),('all 22 original pixel sprites preserve their native format',asset_format),('PNG, C++ array and EXE pixels are byte-identical',pixel_identity),('full-face dense piles and shifted UI geometry',dense_piles_and_layout),('Halloween-only mouse hook and unique host messages',mouse_and_messages),('all nine original simulation bodies remain unchanged',physics_fidelity)]
 passed=failed=0
 for title,fn in checks:
  try:fn();passed+=1;print('PASS',title)

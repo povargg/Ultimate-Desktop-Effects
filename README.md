@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="docs/images/ue-chef-logo.png" alt="UE pixel logo with a chef hat" width="112" height="112">
+<img src="docs/images/ultimate-desktop-effects.png" alt="Ultimate Desktop Effects icon" width="112" height="112">
 
-# UltimateDesktopEffects
+# Ultimate Desktop Effects
 
 **Snow, rain, falling leaves and Halloween — four desktop effects in one native Windows app.**
 
-[**Download for Windows**](https://github.com/povargg/UltimateDesktopEffects/releases/latest/download/UltimateDesktopEffects.exe) · [**Portable version**](https://github.com/povargg/UltimateDesktopEffects/releases/latest/download/UltimateDesktopEffects-Portable.exe) · [**All releases**](https://github.com/povargg/UltimateDesktopEffects/releases) · [**Deutsch**](README.de.md)
+[**Download for Windows**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-x64.exe) · [**Portable version**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Portable.exe) · [**All releases**](https://github.com/povargg/Ultimate-Desktop-Effects/releases) · [**Deutsch**](README.de.md)
 
 Windows 10 / 11 · x64 · C++17 · MIT license
 
@@ -52,13 +52,15 @@ The leaves and Halloween sprites are native **16×16 pixel art**. Settled sprite
 
 ## Download
 
-**Current version: 1.0.2 · Windows x64**
+**Current version: 1.0.3 · Windows x64**
+
+From version 1.0.3, use **Check for updates** in the notification area menu. The app checks GitHub in the background, verifies the download with SHA-256 and restarts after you confirm installation. Install 1.0.3 once to enable updates from an earlier version.
 
 | Download | Use |
 | --- | --- |
-| [**UltimateDesktopEffects.exe**](https://github.com/povargg/UltimateDesktopEffects/releases/latest/download/UltimateDesktopEffects.exe) | Install once, then launch from the Start menu. |
-| [**UltimateDesktopEffects-Portable.exe**](https://github.com/povargg/UltimateDesktopEffects/releases/latest/download/UltimateDesktopEffects-Portable.exe) | Run immediately without installation. Keep `Portable` in the filename. |
-| [**Source code ZIP**](https://github.com/povargg/UltimateDesktopEffects/releases/latest/download/UltimateDesktopEffects-Quellcode.zip) | C++ source, assets, build scripts, tests and documentation. |
+| [**Ultimate-Desktop-Effects-x64.exe**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-x64.exe) | Install once, then launch from the Start menu. |
+| [**Ultimate-Desktop-Effects-Portable.exe**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Portable.exe) | Run immediately without installation. Keep `Portable` in the filename. |
+| [**Source code ZIP**](https://github.com/povargg/Ultimate-Desktop-Effects/releases/latest/download/Ultimate-Desktop-Effects-Source.zip) | C++ source, assets, build scripts, tests and documentation. |
 
 Requires **Windows 10 version 1703 or newer, or Windows 11, 64-bit**, with Direct3D 11 support. The executable includes its C++ runtime; no .NET, Python or separate Visual C++ runtime package is needed to run it.
 
@@ -88,7 +90,7 @@ Settings, including portable mode:
 %APPDATA%\UltimateDesktopEffects\settings.ini
 ```
 
-On first launch, existing effect settings can be imported from the previous `LayerSnow` / `SnowLayer`, `LayerRain`, `LayerLeaves` and `LayerHalloween` configuration folders. New profiles then live together in UltimateDesktopEffects. Interface language and autostart are shared; effect parameters remain independent.
+On first launch, existing effect settings can be imported from the previous `LayerSnow` / `SnowLayer`, `LayerRain`, `LayerLeaves` and `LayerHalloween` configuration folders. New profiles then live together in Ultimate Desktop Effects. Interface language and autostart are shared; effect parameters remain independent.
 
 Scenes and piles are kept in memory while switching effects. Settings and the last selected effect survive a restart; the visual scene starts fresh after reopening the app.
 
@@ -103,7 +105,7 @@ To uninstall, use Windows **Installed apps**, the Start menu shortcut, or `unins
 
 ## Native and local
 
-UltimateDesktopEffects is a **native C++17 application**, using **Direct3D 11, Direct2D, DirectWrite and DirectComposition**. It runs one process, one overlay and one active simulation. Inactive effects retain bounded CPU state; their renderers and closed settings panels release their graphics resources when you switch.
+Ultimate Desktop Effects is a **native C++17 application**, using **Direct3D 11, Direct2D, DirectWrite and DirectComposition**. It runs one process, one overlay and one active simulation. Inactive effects retain bounded CPU state; their renderers and closed settings panels release their graphics resources when you switch.
 
 Particle budgets, pile caches, window event updates and reduced frame rates for static scenes come from the individual effects. A CPU-only comparison of the combined dispatcher against direct simulation calls stayed within a few percent on the build host; see the [validation report](docs/VALIDIERUNG.md) for the measurements and their limits.
 
@@ -173,7 +175,7 @@ licenses/    Third-party runtime notices
 
 **[flipkips](https://github.com/flipkips)** created **[LayerSnow / desktop-snow-overlay](https://github.com/flipkips/desktop-snow-overlay)**, which provides the original snow effect and the Windows overlay, window detection, tray and installation foundation.
 
-**[povargg](https://github.com/povargg)** developed the rain, pixel leaves and Halloween adaptations and combined them into UltimateDesktopEffects.
+**[povargg](https://github.com/povargg)** developed the rain, pixel leaves and Halloween adaptations and combined them into Ultimate Desktop Effects.
 
 The original attribution and copyright notices are retained. The project is distributed under the **[MIT License](LICENSE)**; additional MinGW-w64 and GCC runtime notices are in [`licenses/`](licenses/). Pixel asset generation prompts and preparation sources are included with the assets.
 

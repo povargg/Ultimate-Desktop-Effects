@@ -1,4 +1,4 @@
-# Validierung – UltimateDesktopEffects 1.0.0
+# Validierung – Ultimate Desktop Effects 1.0.0
 
 Prüfung am **1. November 2026**. Ergebnis: **200 automatisierte Prüfungen bestanden, 0 fehlgeschlagen**. Dazu kommen die visuelle Prüfung einer Offline-Simulation und ein Vergleich der reinen CPU-Berechnung.
 

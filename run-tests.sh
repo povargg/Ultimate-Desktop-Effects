@@ -16,3 +16,6 @@ for effect in snow rain leaves halloween; do
 done
 
 sh run-suite-tests.sh
+
+${CXX:-g++} $flags tests/update_tests.cpp -o build/update_tests
+ASAN_OPTIONS=detect_leaks=0 ./build/update_tests

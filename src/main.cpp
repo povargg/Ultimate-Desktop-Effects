@@ -5,6 +5,7 @@
 #include "settings.h"
 #include "effects.h"
 #include "tray_input.h"
+#include "update.h"
 #include "ui.h"
 #include "world.h"
 #include <dwmapi.h>
@@ -63,7 +64,7 @@ static std::vector<HWINEVENTHOOK> InstallWinEventHooks() {
 
 class App {
 public:
-    int Run(bool welcome);
+    int Run(bool welcome, DWORD updatedParent);
 
 private:
     static LRESULT CALLBACK MsgProc(HWND, UINT, WPARAM, LPARAM);
@@ -82,6 +83,7 @@ private:
     HHOOK mouseHook_=nullptr;
     bool cutButtonHeld_=false;
     Renderer renderer_;
+    updates::Updater updater_;
     RectI overlayRect_;
     UINT taskbarCreated_ = 0;
     bool running_ = true, shown_ = false, wasIdle_ = false, reinit_ = false;
@@ -91,6 +93,7 @@ private:
 
 static App* g_app;
 static constexpr UINT_PTR kModalTimer = 7;
+static constexpr UINT_PTR kUpdateTimer = 8;
 
 LRESULT CALLBACK App::MouseProc(int code,WPARAM message,LPARAM data){
  if(code>=0&&g_app){
@@ -147,6 +150,7 @@ LRESULT App::HandleMsg(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
     case WM_APP_SHAKE:        scene_.ShakeAll(); return 0;
     case WM_APP_TRAYCMD:      HandleCmd((int)wp); return 0;
     case WM_APP_RELOADUI:     ReloadUi(); return 0;
+    case WM_APP_UPDATE:       if (updater_.Finish(hwnd)) running_ = false; return 0;
     case WM_APP_MODALLOOP:
         // Dragging a window runs a modal loop that starves our main loop; keep ticking from WM_TIMER meanwhile.
         if (wp) SetTimer(hwnd, kModalTimer, 1000 / std::max(15, ActiveSettings().fps), nullptr);
@@ -154,6 +158,10 @@ LRESULT App::HandleMsg(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
         return 0;
     case WM_TIMER:
         if (wp == kModalTimer) Tick();
+        if (wp == kUpdateTimer) {
+            SetTimer(hwnd, kUpdateTimer, 24 * 60 * 60 * 1000, nullptr);
+            updater_.Check(hwnd, false);
+        }
         return 0;
     case WM_DISPLAYCHANGE:    reinit_ = true; return 0;
     case WM_QUERYENDSESSION:  SaveSettings(); return TRUE;
@@ -169,6 +177,7 @@ void App::HandleCmd(int cmd) {
     case CMD_CLEAR: scene_.ClearAll(); break;
     case CMD_SPIDER: scene_.SpawnSpider(world_); break;
     case CMD_SETTINGS: ShowSettingsWindow(msgWnd_); break;
+    case CMD_CHECK_UPDATES: updater_.Check(msgWnd_, true); break;
     case CMD_EXIT:     running_ = false; break;
     }
 }
@@ -246,7 +255,7 @@ void App::Tick() {
     if (!idle && !scene_.VisibleMotion()) interval_ = std::max(interval_, 0.1);  // only waves on screen: 10 fps is enough
 }
 
-int App::Run(bool welcome) {
+int App::Run(bool welcome, DWORD updatedParent) {
     g_app = this;
     WNDCLASSEXW wc = {sizeof(wc)};
     wc.lpfnWndProc = MsgProc;
@@ -276,6 +285,9 @@ int App::Run(bool welcome) {
     for (UINT m : {(UINT)WM_APP_TRAY, (UINT)WM_APP_SHOWSETTINGS, (UINT)WM_CLOSE, taskbarCreated_})
         ChangeWindowMessageFilterEx(msgWnd_, m, MSGFLT_ALLOW, nullptr);
     TrayAdd(msgWnd_);
+    if (IsInstalledCopy()) RefreshInstallBranding();
+    updates::RemovePreviousVersion(updatedParent);
+    SetTimer(msgWnd_, kUpdateTimer, 4500, nullptr);
     if (welcome)
         TrayBalloon(Tr(S_WELCOME_TITLE), Tr(S_WELCOME_TEXT));
 
@@ -332,6 +344,7 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE, PWSTR, int) {
     SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 
     bool uninstall = false, quiet = false, portable = false, welcome = false, autostart = false;
+    DWORD updatedParent = 0;
     int argc = 0;
     if (LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc)) {
         for (int i = 1; i < argc; ++i) {
@@ -340,6 +353,12 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE, PWSTR, int) {
             else if (!_wcsicmp(argv[i], L"/portable")) portable = true;
             else if (!_wcsicmp(argv[i], L"/welcome")) welcome = true;
             else if (!_wcsicmp(argv[i], L"/autostart")) autostart = true;
+            else if (!_wcsicmp(argv[i], L"/update-parent")) {
+                if (++i == argc || !updates::WaitForPreviousProcess(argv[i], updatedParent)) {
+                    LocalFree(argv);
+                    return 1;
+                }
+            }
         }
         LocalFree(argv);
     }
@@ -370,7 +389,7 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE, PWSTR, int) {
             }
         } else {
             App app;
-            rc = app.Run(welcome);
+            rc = app.Run(welcome, updatedParent);
             SaveSettings();
         }
         if (mutex) CloseHandle(mutex);

@@ -192,9 +192,10 @@ void ShowTrayFlyout(HWND notify) {
 
     p.AddItem({8, 346, 308, 376}, Tr(S_SHAKE_ALL), CMD_SHAKE);
     p.AddItem({8, 378, 308, 408}, Tr(S_ALL_SETTINGS), CMD_SETTINGS);
-    p.AddItem({8, 410, 308, 440}, Tr(S_EXIT), CMD_EXIT);
-    p.AddLink({20,452,150,472},L"povargg",APP_REPO);
-    p.AddLink({160,452,298,472},L"flipkips",UPSTREAM_REPO,true);
+    p.AddItem({8, 410, 308, 440}, ::Tr(::S_CHECK_UPDATES), ::CMD_CHECK_UPDATES);
+    p.AddItem({8, 442, 308, 472}, Tr(S_EXIT), CMD_EXIT);
+    p.AddLink({20,484,150,504},L"povargg",APP_REPO);
+    p.AddLink({160,484,298,504},L"flipkips",UPSTREAM_REPO,true);
 
     auto onEvent = [](int id) {
         if (id == 0) {
@@ -208,7 +209,7 @@ void ShowTrayFlyout(HWND notify) {
     };
     POINT pt;
     GetCursorPos(&pt);
-    if (!p.Create(APP_NAME, 316, 500, onEvent, &pt)) g_flyout.reset();
+    if (!p.Create(APP_NAME, 316, 532, onEvent, &pt)) g_flyout.reset();
 }
 
 void CloseUi(){if(g_panel&&g_panel->Hwnd())DestroyWindow(g_panel->Hwnd());if(g_flyout&&g_flyout->Hwnd())DestroyWindow(g_flyout->Hwnd());

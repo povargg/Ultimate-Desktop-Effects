@@ -1,4 +1,4 @@
-# UltimateDesktopEffects 1.0.1
+# Ultimate Desktop Effects 1.0.1
 
 Kleines Update des am 1. November 2026 geprüften Basisstands 1.0.0.
 
@@ -9,7 +9,7 @@ Kleines Update des am 1. November 2026 geprüften Basisstands 1.0.0.
 - Windows-Icongrößen: 16, 24, 32, 48, 64, 128 und 256 Pixel. Die Vergrößerungen verwenden Nearest-Neighbor-Interpolation.
 - Programm- und Paketversion auf 1.0.1 erhöht.
 
-Die neue Grafik wurde mit der integrierten Bildgenerierung erstellt. Unverändertes Generierungsergebnis: `res/icon/ue-chef-generated.png`. Native, für Windows vorbereitete Fassung: `res/icon/ue-chef-32.png`. Exakter Prompt und Erzeugungsmodus: `res/icon/generation.json`. Die Windows-Datei `res/ultimate.ico` lässt sich mit `python3 tools/make_icon.py` aus diesen vorhandenen Grafiken erneut erzeugen. Eine neue Bildgenerierung ist zum Bauen nicht notwendig.
+Die neue Grafik wurde mit der integrierten Bildgenerierung erstellt. Unverändertes Generierungsergebnis: `res/icon/ue-chef-generated.png`. Native, für Windows vorbereitete Fassung: `res/icon/ue-chef-32.png`. Exakter Prompt und Erzeugungsmodus: `res/icon/generation.json`. Die Windows-Datei `res/ultimate.ico` lässt sich mit `python3 tools/make_icon.py` im Tag `v1.0.1` aus diesen Grafiken erneut erzeugen. Eine neue Bildgenerierung ist zum Bauen nicht notwendig.
 
 ## Gezielte Prüfung
 

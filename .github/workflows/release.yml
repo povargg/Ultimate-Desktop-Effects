@@ -1,0 +1,34 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and package
+        shell: pwsh
+        run: |
+          cmd.exe /c build.bat
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          ./scripts/package-release.ps1 -Executable ./dist/Ultimate-Desktop-Effects-x64.exe -OutputDirectory ./dist -Tag $env:GITHUB_REF_NAME
+          git archive --format=zip --output=./dist/Ultimate-Desktop-Effects-Source.zip HEAD
+          exit $LASTEXITCODE
+      - name: Publish
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          gh release view $tag --json isDraft 2>$null | Out-Null
+          if ($LASTEXITCODE -eq 0) { exit 0 }
+          gh release create $tag ./dist/Ultimate-Desktop-Effects-x64.exe ./dist/Ultimate-Desktop-Effects-Portable.exe ./dist/Ultimate-Desktop-Effects-Source.zip ./dist/update-manifest.txt ./dist/SHA256SUMS.txt --verify-tag --draft --title "Ultimate Desktop Effects $tag" --generate-notes
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          gh release edit $tag --draft=false
+          exit $LASTEXITCODE

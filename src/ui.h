@@ -1,6 +1,6 @@
 #pragma once
 #include "common.h"
-enum TrayCmd {CMD_SHAKE=1001,CMD_SETTINGS,CMD_EXIT,CMD_APPEARANCE,CMD_CLEAR,CMD_SPIDER};
+enum TrayCmd {CMD_SHAKE=1001,CMD_SETTINGS,CMD_EXIT,CMD_APPEARANCE,CMD_CLEAR,CMD_SPIDER,CMD_CHECK_UPDATES};
 constexpr int CMD_WEATHER=CMD_APPEARANCE;
 constexpr int kFpsChoices[]={20,30,45,60,90,120,144};
 constexpr int kFpsChoiceCount=sizeof(kFpsChoices)/sizeof(kFpsChoices[0]);

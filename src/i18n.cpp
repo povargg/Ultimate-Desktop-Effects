@@ -75,13 +75,13 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_LICENSE
  {L"Credits / MIT license", L"Авторы / лицензия MIT", L"Автори / ліцензія MIT", L"Autori / licență MIT", L"Mitwirkende / MIT-Lizenz"},
  // S_TRAY_TIP
- {L"UltimateDesktopEffects — povargg & flipkips", L"UltimateDesktopEffects — povargg & flipkips", L"UltimateDesktopEffects — povargg & flipkips", L"UltimateDesktopEffects — povargg & flipkips", L"UltimateDesktopEffects — povargg & flipkips"},
+ {L"Ultimate Desktop Effects — povargg & flipkips", L"Ultimate Desktop Effects — povargg & flipkips", L"Ultimate Desktop Effects — povargg & flipkips", L"Ultimate Desktop Effects — povargg & flipkips", L"Ultimate Desktop Effects — povargg & flipkips"},
  // S_WELCOME_TITLE
- {L"UltimateDesktopEffects is running", L"UltimateDesktopEffects запущен", L"UltimateDesktopEffects запущено", L"UltimateDesktopEffects rulează", L"UltimateDesktopEffects läuft"},
+ {L"Ultimate Desktop Effects is running", L"Ultimate Desktop Effects запущен", L"Ultimate Desktop Effects запущено", L"Ultimate Desktop Effects rulează", L"Ultimate Desktop Effects läuft"},
  // S_WELCOME_TEXT
  {L"Choose Snow, Rain, Leaves or Halloween in the tray menu or settings. Left click: settings. Right click: quick menu.", L"Выберите снег, дождь, листья или Хеллоуин в настройках или меню трея. Левый клик: настройки. Правый: меню.", L"Виберіть сніг, дощ, листя або Гелловін у налаштуваннях чи меню трея. Лівий клік: налаштування. Правий: меню.", L"Alege zăpadă, ploaie, frunze sau Halloween din setări sau meniul din tray. Clic stânga: setări. Clic dreapta: meniu.", L"Wähle Schnee, Regen, Blätter oder Halloween in den Einstellungen oder im Schnellmenü. Linksklick: Einstellungen. Rechtsklick: Schnellmenü."},
  // S_SETTINGS_TITLE
- {L"UltimateDesktopEffects: settings", L"UltimateDesktopEffects: настройки", L"UltimateDesktopEffects: налаштування", L"UltimateDesktopEffects: setări", L"UltimateDesktopEffects: Einstellungen"},
+ {L"Ultimate Desktop Effects: settings", L"Ultimate Desktop Effects: настройки", L"Ultimate Desktop Effects: налаштування", L"Ultimate Desktop Effects: setări", L"Ultimate Desktop Effects: Einstellungen"},
  // S_SUBTITLE
  {L"Four desktop effects in one app", L"Четыре эффекта в одном приложении", L"Чотири ефекти в одній програмі", L"Patru efecte într-o aplicație", L"Vier Desktop-Effekte in einer App"},
  // S_PROJECT_BY
@@ -143,25 +143,25 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_CLEAR_ALL
  {L"Clear all", L"Убрать всё", L"Прибрати все", L"Șterge tot", L"Alles entfernen"},
  // S_INSTALL_TITLE
- {L"Install UltimateDesktopEffects", L"Установка UltimateDesktopEffects", L"Встановлення UltimateDesktopEffects", L"Instalare UltimateDesktopEffects", L"UltimateDesktopEffects installieren"},
+ {L"Install Ultimate Desktop Effects", L"Установка Ultimate Desktop Effects", L"Встановлення Ultimate Desktop Effects", L"Instalare Ultimate Desktop Effects", L"Ultimate Desktop Effects installieren"},
  // S_UPDATE_TITLE
- {L"Update UltimateDesktopEffects", L"Обновление UltimateDesktopEffects", L"Оновлення UltimateDesktopEffects", L"Actualizare UltimateDesktopEffects", L"UltimateDesktopEffects aktualisieren"},
+ {L"Update Ultimate Desktop Effects", L"Обновление Ultimate Desktop Effects", L"Оновлення Ultimate Desktop Effects", L"Actualizare Ultimate Desktop Effects", L"Ultimate Desktop Effects aktualisieren"},
  // S_INSTALL_SUB
  {L"Snow, Rain, Leaves and Halloween", L"Снег, дождь, листья и Хеллоуин", L"Сніг, дощ, листя та Гелловін", L"Zăpadă, ploaie, frunze și Halloween", L"Schnee, Regen, Blätter und Halloween"},
  // S_INSTALL_DESC
  {L"Four effects with their original settings. Switch instantly in one app. By povargg and flipkips (MIT).", L"Четыре эффекта с исходными настройками и переключением в одном приложении. Авторы: povargg и flipkips (MIT).", L"Чотири ефекти з початковими налаштуваннями та перемиканням в одній програмі. Автори: povargg і flipkips (MIT).", L"Patru efecte cu setările originale și comutare într-o aplicație. Autori: povargg și flipkips (MIT).", L"Vier Effekte mit ihren bisherigen Einstellungen. Direkt in einer App umschalten. Von povargg und flipkips (MIT)."},
  // S_INSTALL_DONE
- {L"Done! Start UltimateDesktopEffects from the Start menu.", L"Готово! Откройте UltimateDesktopEffects из меню «Пуск».", L"Готово! Відкрийте UltimateDesktopEffects з меню «Пуск».", L"Gata! Pornește UltimateDesktopEffects din meniul Start.", L"Fertig! UltimateDesktopEffects lässt sich im Startmenü öffnen."},
+ {L"Done! Start Ultimate Desktop Effects from the Start menu.", L"Готово! Откройте Ultimate Desktop Effects из меню «Пуск».", L"Готово! Відкрийте Ultimate Desktop Effects з меню «Пуск».", L"Gata! Pornește Ultimate Desktop Effects din meniul Start.", L"Fertig! Ultimate Desktop Effects lässt sich im Startmenü öffnen."},
  // S_UNINSTALL_TITLE
- {L"Uninstall UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Dezinstalare UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Dezinstalare Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_UNINSTALL_SUB
- {L"Remove UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Elimină UltimateDesktopEffects", L"UltimateDesktopEffects entfernen"},
+ {L"Remove Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Elimină Ultimate Desktop Effects", L"Ultimate Desktop Effects entfernen"},
  // S_REMOVED_TITLE
- {L"UltimateDesktopEffects removed", L"UltimateDesktopEffects удалён", L"UltimateDesktopEffects видалено", L"UltimateDesktopEffects a fost eliminat", L"UltimateDesktopEffects wurde entfernt"},
+ {L"Ultimate Desktop Effects removed", L"Ultimate Desktop Effects удалён", L"Ultimate Desktop Effects видалено", L"Ultimate Desktop Effects a fost eliminat", L"Ultimate Desktop Effects wurde entfernt"},
  // S_REMOVED_TEXT
- {L"UltimateDesktopEffects has been removed.", L"UltimateDesktopEffects удалён.", L"UltimateDesktopEffects видалено.", L"UltimateDesktopEffects a fost eliminat.", L"UltimateDesktopEffects wurde entfernt."},
+ {L"Ultimate Desktop Effects has been removed.", L"Ultimate Desktop Effects удалён.", L"Ultimate Desktop Effects видалено.", L"Ultimate Desktop Effects a fost eliminat.", L"Ultimate Desktop Effects wurde entfernt."},
  // S_UNINSTALL_LINK
- {L"Uninstall UltimateDesktopEffects", L"Удалить UltimateDesktopEffects", L"Видалити UltimateDesktopEffects", L"Dezinstalează UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удалить Ultimate Desktop Effects", L"Видалити Ultimate Desktop Effects", L"Dezinstalează Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_MODE_CANDY
  {L"Candy", L"Сладости", L"Солодощі", L"Dulciuri", L"Süßigkeiten"},
  // S_MODE_SPIDERS
@@ -200,6 +200,20 @@ static const wchar_t* const kText[][LANG_COUNT]={
  {L"Leaves", L"Листья", L"Листя", L"Frunze", L"Blätter"},
  // S_EFFECT_HALLOWEEN
  {L"Halloween", L"Хеллоуин", L"Гелловін", L"Halloween", L"Halloween"},
+ // S_CHECK_UPDATES
+ {L"Check for updates", L"Проверить обновления", L"Перевірити оновлення", L"Caută actualizări", L"Nach Updates suchen"},
+ // S_UPDATE_AVAILABLE
+ {L"Open the tray menu to install the update.", L"Чтобы установить обновление, откройте меню в трее.", L"Щоб установити оновлення, відкрийте меню в області сповіщень.", L"Deschide meniul din zona de notificare pentru a actualiza.", L"Öffne das Menü im Infobereich, um das Update zu installieren."},
+ // S_UPDATE_CURRENT
+ {L"You have the latest version.", L"У вас последняя версия.", L"У вас остання версія.", L"Ai cea mai nouă versiune.", L"Du hast die neueste Version."},
+ // S_UPDATE_ASK
+ {L"Install this GitHub release and restart the app?", L"Установить этот релиз с GitHub и перезапустить приложение?", L"Установити цей випуск з GitHub і перезапустити застосунок?", L"Instalezi versiunea de pe GitHub și repornești aplicația?", L"Diese GitHub-Version installieren und die App neu starten?"},
+ // S_UPDATE_BUSY
+ {L"Updating from GitHub…", L"Обновление через GitHub…", L"Оновлення через GitHub…", L"Se actualizează de pe GitHub…", L"Update von GitHub läuft…"},
+ // S_UPDATE_FAILED
+ {L"The update could not be completed.", L"Не удалось завершить обновление.", L"Не вдалося завершити оновлення.", L"Actualizarea nu a putut fi finalizată.", L"Das Update konnte nicht abgeschlossen werden."},
+ // S_UPDATE_BACKUP
+ {L"Previous executable:", L"Исполняемый файл предыдущей версии:", L"Виконуваний файл попередньої версії:", L"Executabilul anterior:", L"Vorherige Programmdatei:"},
 };
 static_assert(sizeof(kText)/sizeof(kText[0])==S_COUNT,"translation count mismatch");
 int CurrentLang(){int lang=SuiteCfg().lang;if(lang>=0&&lang<5)return lang;switch(PRIMARYLANGID(GetUserDefaultUILanguage())){case LANG_RUSSIAN:return LANG_RU;case LANG_UKRAINIAN:return LANG_UA;case LANG_ROMANIAN:return LANG_RO;case LANG_GERMAN:return LANG_DE;default:return LANG_EN;}}

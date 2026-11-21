@@ -25,10 +25,11 @@
 using Microsoft::WRL::ComPtr;
 #endif
 
-#define APP_NAME    L"UltimateDesktopEffects"
-#define APP_VERSION L"1.0.2"
+#define APP_NAME    L"Ultimate Desktop Effects"
+#define APP_ID      L"UltimateDesktopEffects"
+#define APP_VERSION L"1.0.3"
 #define APP_AUTHOR  L"povargg & flipkips"
-#define APP_REPO    L"https://github.com/povargg"
+#define APP_REPO    L"https://github.com/povargg/Ultimate-Desktop-Effects"
 #define UPSTREAM_REPO L"https://github.com/flipkips/desktop-snow-overlay"
 #define IDI_APP     101
 
@@ -44,6 +45,7 @@ using Microsoft::WRL::ComPtr;
 #define WM_APP_SPIDER        (WM_APP + 9)
 #define WM_APP_LIGHTNING     (WM_APP + 10)
 #define WM_APP_EFFECT        (WM_APP + 11)
+#define WM_APP_UPDATE        (WM_APP + 12)
 
 DWORD WindowsBuild();  // 22000+ is Windows 11
 

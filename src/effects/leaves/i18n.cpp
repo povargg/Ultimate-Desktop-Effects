@@ -76,13 +76,13 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_LICENSE
  {L"Credits / MIT license", L"Авторы / лицензия MIT", L"Автори / ліцензія MIT", L"Autori / licență MIT", L"Mitwirkende / MIT-Lizenz"},
  // S_TRAY_TIP
- {L"UltimateDesktopEffects: pixel leaves by povargg", L"UltimateDesktopEffects: пиксельные листья от povargg", L"UltimateDesktopEffects: піксельне листя від povargg", L"UltimateDesktopEffects: frunze pixel de povargg", L"UltimateDesktopEffects: Pixelblätter von povargg"},
+ {L"Ultimate Desktop Effects: pixel leaves by povargg", L"Ultimate Desktop Effects: пиксельные листья от povargg", L"Ultimate Desktop Effects: піксельне листя від povargg", L"Ultimate Desktop Effects: frunze pixel de povargg", L"Ultimate Desktop Effects: Pixelblätter von povargg"},
  // S_WELCOME_TITLE
- {L"UltimateDesktopEffects is running", L"UltimateDesktopEffects запущен", L"UltimateDesktopEffects запущено", L"UltimateDesktopEffects rulează", L"UltimateDesktopEffects läuft"},
+ {L"Ultimate Desktop Effects is running", L"Ultimate Desktop Effects запущен", L"Ultimate Desktop Effects запущено", L"Ultimate Desktop Effects rulează", L"Ultimate Desktop Effects läuft"},
  // S_WELCOME_TEXT
  {L"The leaf icon is in the tray. Left click: settings. Right click: leaf type and quick menu.", L"Значок листа в трее. Левый клик: настройки. Правый: выбор листьев и меню.", L"Значок листка в треї. Лівий клік: налаштування. Правий: вибір листя та меню.", L"Frunza este în zona de notificare. Clic stânga: setări. Clic dreapta: tipul frunzei și meniu.", L"Das Blattsymbol ist im Infobereich. Linksklick: Einstellungen. Rechtsklick: Blattart und Schnellmenü."},
  // S_SETTINGS_TITLE
- {L"UltimateDesktopEffects: settings", L"UltimateDesktopEffects: настройки", L"UltimateDesktopEffects: налаштування", L"UltimateDesktopEffects: setări", L"UltimateDesktopEffects: Einstellungen"},
+ {L"Ultimate Desktop Effects: settings", L"Ultimate Desktop Effects: настройки", L"Ultimate Desktop Effects: налаштування", L"Ultimate Desktop Effects: setări", L"Ultimate Desktop Effects: Einstellungen"},
  // S_SUBTITLE
  {L"Pixel leaves on your desktop", L"Пиксельные листья на рабочем столе", L"Піксельне листя на робочому столі", L"Frunze pixel pe desktop", L"Pixelblätter auf deinem Desktop"},
  // S_PROJECT_BY
@@ -150,25 +150,25 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_CLEAR_ALL
  {L"Clear all leaves", L"Убрать все листья", L"Прибрати все листя", L"Șterge toate frunzele", L"Alles Laub entfernen"},
  // S_INSTALL_TITLE
- {L"Install UltimateDesktopEffects", L"Установка UltimateDesktopEffects", L"Встановлення UltimateDesktopEffects", L"Instalare UltimateDesktopEffects", L"UltimateDesktopEffects installieren"},
+ {L"Install Ultimate Desktop Effects", L"Установка Ultimate Desktop Effects", L"Встановлення Ultimate Desktop Effects", L"Instalare Ultimate Desktop Effects", L"Ultimate Desktop Effects installieren"},
  // S_UPDATE_TITLE
- {L"Update UltimateDesktopEffects", L"Обновление UltimateDesktopEffects", L"Оновлення UltimateDesktopEffects", L"Actualizare UltimateDesktopEffects", L"UltimateDesktopEffects aktualisieren"},
+ {L"Update Ultimate Desktop Effects", L"Обновление Ultimate Desktop Effects", L"Оновлення Ultimate Desktop Effects", L"Actualizare Ultimate Desktop Effects", L"Ultimate Desktop Effects aktualisieren"},
  // S_INSTALL_SUB
  {L"Pixel leaves by povargg", L"Пиксельные листья от povargg", L"Піксельне листя від povargg", L"Frunze pixel de povargg", L"Pixelblätter von povargg"},
  // S_INSTALL_DESC
  {L"A project by povargg. Pixel leaves flutter down and form uneven layers on windows and the taskbar. Sakura, summer and autumn; four variants each. Based on LayerSnow by flipkips (MIT).", L"Проект povargg. Пиксельные листья падают и образуют неровные слои на окнах и панели задач. Сакура, лето, осень, по четыре варианта. Основа: LayerSnow от flipkips (MIT).", L"Проєкт povargg. Піксельне листя падає та утворює нерівні шари на вікнах і панелі завдань. Сакура, літо, осінь, по чотири варіанти. Основа: LayerSnow від flipkips (MIT).", L"Un proiect de povargg. Frunze pixel formează straturi pe ferestre și bara de activități. Sakura, vară, toamnă: patru variante fiecare. Bază: LayerSnow de flipkips (MIT).", L"Ein Projekt von povargg. Pixelblätter fallen und bilden ungleichmäßige Schichten auf Fenstern und Taskleiste. Sakura, Sommer und Herbst mit je vier Varianten. Basis: LayerSnow von flipkips (MIT)."},
  // S_INSTALL_DONE
- {L"Done! Start UltimateDesktopEffects from the Start menu.", L"Готово! Запустите UltimateDesktopEffects из меню «Пуск».", L"Готово! Запустіть UltimateDesktopEffects з меню «Пуск».", L"Gata! Pornește UltimateDesktopEffects din meniul Start.", L"Fertig! UltimateDesktopEffects lässt sich im Startmenü öffnen."},
+ {L"Done! Start Ultimate Desktop Effects from the Start menu.", L"Готово! Запустите Ultimate Desktop Effects из меню «Пуск».", L"Готово! Запустіть Ultimate Desktop Effects з меню «Пуск».", L"Gata! Pornește Ultimate Desktop Effects din meniul Start.", L"Fertig! Ultimate Desktop Effects lässt sich im Startmenü öffnen."},
  // S_UNINSTALL_TITLE
- {L"Uninstall UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Dezinstalare UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Dezinstalare Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_UNINSTALL_SUB
  {L"Remove the pixel leaves", L"Убрать пиксельные листья", L"Прибрати піксельне листя", L"Elimină frunzele pixel", L"Pixelblätter entfernen"},
  // S_REMOVED_TITLE
- {L"UltimateDesktopEffects removed", L"UltimateDesktopEffects удалён", L"UltimateDesktopEffects видалено", L"UltimateDesktopEffects a fost eliminat", L"UltimateDesktopEffects wurde entfernt"},
+ {L"Ultimate Desktop Effects removed", L"Ultimate Desktop Effects удалён", L"Ultimate Desktop Effects видалено", L"Ultimate Desktop Effects a fost eliminat", L"Ultimate Desktop Effects wurde entfernt"},
  // S_REMOVED_TEXT
  {L"The leaves have been swept away.", L"Листья убраны.", L"Листя прибрано.", L"Frunzele au fost măturate.", L"Das Laub wurde weggefegt."},
  // S_UNINSTALL_LINK
- {L"Uninstall UltimateDesktopEffects", L"Удалить UltimateDesktopEffects", L"Видалити UltimateDesktopEffects", L"Dezinstalează UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удалить Ultimate Desktop Effects", L"Видалити Ultimate Desktop Effects", L"Dezinstalează Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
 };
 static_assert(sizeof(kText)/sizeof(kText[0])==S_COUNT,"translation count mismatch");
 int CurrentLang(){return ::CurrentLang();}

@@ -42,7 +42,7 @@ void DecodeSettings(const std::string& text,bool reset){
  SetLanguage(suite.lang);
 }
 std::string EncodeSettings(){
- std::ostringstream out;out<<"; UltimateDesktopEffects 1.0.2\n[suite]\neffect="<<std::clamp(suite.effect,0,3)<<"\nlang="<<std::clamp(suite.lang,-1,4)<<"\n";
+ std::ostringstream out;out<<"; Ultimate Desktop Effects\n[suite]\neffect="<<std::clamp(suite.effect,0,3)<<"\nlang="<<std::clamp(suite.lang,-1,4)<<"\n";
  for(int e=0;e<EFFECT_COUNT;++e){out<<"\n["<<ProfileName(e)<<"]\n";for(auto f:ProfileFields(e)){int value=f.i?*f.i:(*f.b?1:0);out<<Narrow(f.key)<<'='<<std::clamp(value,f.lo,f.hi)<<'\n';}}
  return out.str();
 }

@@ -123,12 +123,13 @@ void ShowTrayFlyout(HWND notify) {
     p.AddItem({8,366,328,396},Tr(S_SHAKE_ALL),CMD_SHAKE);
     p.AddItem({8,398,328,428},Tr(S_APPEARANCE),CMD_APPEARANCE);
     p.AddItem({8,430,328,460},Tr(S_ALL_SETTINGS),CMD_SETTINGS);
-    p.AddItem({8,462,328,492},Tr(S_EXIT),CMD_EXIT);
-    p.AddLink({20,504,318,524},Tr(S_PROJECT_BY),APP_REPO);
-    p.AddLink({20,526,318,546},Tr(S_AUTHOR),UPSTREAM_REPO);
+    p.AddItem({8,462,328,492},::Tr(::S_CHECK_UPDATES),::CMD_CHECK_UPDATES);
+ p.AddItem({8,494,328,524},Tr(S_EXIT),CMD_EXIT);
+    p.AddLink({20,536,318,556},Tr(S_PROJECT_BY),APP_REPO);
+    p.AddLink({20,558,318,578},Tr(S_AUTHOR),UPSTREAM_REPO);
     POINT pt;GetCursorPos(&pt);
     auto event=[](int id){if(!id){Changed();return;}PostMessageW(g_notify,WM_APP_TRAYCMD,id,0);PostMessageW(g_flyout->Hwnd(),WM_CLOSE,0,0);};
-    if(!p.Create(APP_NAME,336,570,event,&pt))g_flyout.reset();
+    if(!p.Create(APP_NAME,336,602,event,&pt))g_flyout.reset();
 }
 
 bool UiContainsPoint(POINT point){

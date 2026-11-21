@@ -4,13 +4,13 @@ namespace rainfx {
 const wchar_t* const kLangCodes[LANG_COUNT]={L"EN",L"RU",L"UA",L"RO",L"DE"};
 static const wchar_t* const kText[][LANG_COUNT]={
  // S_TRAY_TIP
- {L"UltimateDesktopEffects: rain and lightning", L"UltimateDesktopEffects: дождь и молнии", L"UltimateDesktopEffects: дощ і блискавки", L"UltimateDesktopEffects: ploaie și fulgere", L"UltimateDesktopEffects: Regen und Gewitter"},
+ {L"Ultimate Desktop Effects: rain and lightning", L"Ultimate Desktop Effects: дождь и молнии", L"Ultimate Desktop Effects: дощ і блискавки", L"Ultimate Desktop Effects: ploaie și fulgere", L"Ultimate Desktop Effects: Regen und Gewitter"},
  // S_WELCOME_TITLE
- {L"UltimateDesktopEffects is running", L"UltimateDesktopEffects запущен", L"UltimateDesktopEffects запущено", L"UltimateDesktopEffects rulează", L"UltimateDesktopEffects läuft"},
+ {L"Ultimate Desktop Effects is running", L"Ultimate Desktop Effects запущен", L"Ultimate Desktop Effects запущено", L"Ultimate Desktop Effects rulează", L"Ultimate Desktop Effects läuft"},
  // S_WELCOME_TEXT
  {L"The raindrop is in the tray. Left click opens settings, right click opens the quick menu.", L"Капля в трее. Левый клик — настройки, правый — быстрое меню.", L"Крапля в треї. Лівий клік — налаштування, правий — швидке меню.", L"Picătura este în zona de notificare. Clic stânga: setări. Clic dreapta: meniu.", L"Das Tropfensymbol ist im Infobereich. Linksklick: Einstellungen. Rechtsklick: Schnellmenü."},
  // S_SETTINGS_TITLE
- {L"UltimateDesktopEffects: settings", L"UltimateDesktopEffects: настройки", L"UltimateDesktopEffects: налаштування", L"UltimateDesktopEffects: setări", L"UltimateDesktopEffects: Einstellungen"},
+ {L"Ultimate Desktop Effects: settings", L"Ultimate Desktop Effects: настройки", L"Ultimate Desktop Effects: налаштування", L"Ultimate Desktop Effects: setări", L"Ultimate Desktop Effects: Einstellungen"},
  // S_SUBTITLE
  {L"Rain, ripples and thunderstorms on your desktop", L"Дождь, рябь и гроза на рабочем столе", L"Дощ, брижі та гроза на робочому столі", L"Ploaie, valuri și furtuni pe desktop", L"Regen, Wasser und Gewitter auf deinem Desktop"},
  // S_CARD_SNOWFALL
@@ -90,15 +90,15 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_EXIT
  {L"Exit", L"Выход", L"Вихід", L"Ieșire", L"Beenden"},
  // S_INSTALL_TITLE
- {L"Install UltimateDesktopEffects", L"Установка UltimateDesktopEffects", L"Встановлення UltimateDesktopEffects", L"Instalare UltimateDesktopEffects", L"UltimateDesktopEffects installieren"},
+ {L"Install Ultimate Desktop Effects", L"Установка Ultimate Desktop Effects", L"Встановлення Ultimate Desktop Effects", L"Instalare Ultimate Desktop Effects", L"Ultimate Desktop Effects installieren"},
  // S_UPDATE_TITLE
- {L"Update UltimateDesktopEffects", L"Обновление UltimateDesktopEffects", L"Оновлення UltimateDesktopEffects", L"Actualizare UltimateDesktopEffects", L"UltimateDesktopEffects aktualisieren"},
+ {L"Update Ultimate Desktop Effects", L"Обновление Ultimate Desktop Effects", L"Оновлення Ultimate Desktop Effects", L"Actualizare Ultimate Desktop Effects", L"Ultimate Desktop Effects aktualisieren"},
  // S_INSTALL_SUB
  {L"Rain and thunderstorms on your desktop", L"Дождь и гроза на рабочем столе", L"Дощ і гроза на робочому столі", L"Ploaie și furtuni pe desktop", L"Regen und Gewitter auf deinem Desktop"},
  // S_WHAT_INSTALLED
  {L"What gets installed", L"Что будет установлено", L"Що буде встановлено", L"Ce se instalează", L"Was installiert wird"},
  // S_INSTALL_DESC
- {L"Rain falls over or behind windows. Water collects on window edges and the taskbar, with splashes and optional lightning. Based on LayerSnow by flipkips (MIT).", L"Дождь поверх окон или за ними. Вода на краях окон и панели задач, брызги и отключаемые молнии. На основе UltimateDesktopEffects от flipkips (MIT).", L"Дощ поверх вікон або за ними. Вода на краях вікон і панелі завдань, бризки та вимикні блискавки. На основі UltimateDesktopEffects від flipkips (MIT).", L"Ploaie peste ferestre sau în spatele lor. Apă pe margini, stropi și fulgere opționale. Bazat pe UltimateDesktopEffects de flipkips (MIT).", L"Regen vor oder hinter Fenstern. Wasser sammelt sich auf Fensterkanten und der Taskleiste, mit Spritzern und optionalen Blitzen. Basis: LayerSnow von flipkips (MIT)."},
+ {L"Rain falls over or behind windows. Water collects on window edges and the taskbar, with splashes and optional lightning. Based on LayerSnow by flipkips (MIT).", L"Дождь поверх окон или за ними. Вода на краях окон и панели задач, брызги и отключаемые молнии. На основе Ultimate Desktop Effects от flipkips (MIT).", L"Дощ поверх вікон або за ними. Вода на краях вікон і панелі завдань, бризки та вимикні блискавки. На основі Ultimate Desktop Effects від flipkips (MIT).", L"Ploaie peste ferestre sau în spatele lor. Apă pe margini, stropi și fulgere opționale. Bazat pe Ultimate Desktop Effects de flipkips (MIT).", L"Regen vor oder hinter Fenstern. Wasser sammelt sich auf Fensterkanten und der Taskleiste, mit Spritzern und optionalen Blitzen. Basis: LayerSnow von flipkips (MIT)."},
  // S_FOLDER
  {L"Folder: ", L"Папка: ", L"Папка: ", L"Dosar: ", L"Ordner: "},
  // S_OPTIONS
@@ -118,9 +118,9 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_INSTALL_ERROR
  {L"Installation error", L"Ошибка установки", L"Помилка встановлення", L"Eroare la instalare", L"Installationsfehler"},
  // S_INSTALL_DONE
- {L"Done! Start UltimateDesktopEffects from the Start menu.", L"Готово! Запустите UltimateDesktopEffects из меню «Пуск».", L"Готово! Запустіть UltimateDesktopEffects з меню «Пуск».", L"Gata! Pornește UltimateDesktopEffects din meniul Start.", L"Fertig! UltimateDesktopEffects lässt sich im Startmenü öffnen."},
+ {L"Done! Start Ultimate Desktop Effects from the Start menu.", L"Готово! Запустите Ultimate Desktop Effects из меню «Пуск».", L"Готово! Запустіть Ultimate Desktop Effects з меню «Пуск».", L"Gata! Pornește Ultimate Desktop Effects din meniul Start.", L"Fertig! Ultimate Desktop Effects lässt sich im Startmenü öffnen."},
  // S_UNINSTALL_TITLE
- {L"Uninstall UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Dezinstalare UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Dezinstalare Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_UNINSTALL_SUB
  {L"Remove the weather overlay", L"Убрать погодные эффекты", L"Прибрати погодні ефекти", L"Elimină efectele meteo", L"Wettereffekte entfernen"},
  // S_UNINSTALL_CARD
@@ -132,13 +132,13 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_UNINSTALL
  {L"Uninstall", L"Удалить", L"Видалити", L"Dezinstalează", L"Deinstallieren"},
  // S_REMOVED_TITLE
- {L"UltimateDesktopEffects removed", L"UltimateDesktopEffects удалён", L"UltimateDesktopEffects видалено", L"UltimateDesktopEffects a fost eliminat", L"UltimateDesktopEffects wurde entfernt"},
+ {L"Ultimate Desktop Effects removed", L"Ultimate Desktop Effects удалён", L"Ultimate Desktop Effects видалено", L"Ultimate Desktop Effects a fost eliminat", L"Ultimate Desktop Effects wurde entfernt"},
  // S_REMOVED_TEXT
  {L"The rain has stopped.", L"Дождь закончился.", L"Дощ закінчився.", L"Ploaia s-a oprit.", L"Der Regen hat aufgehört."},
  // S_CLOSE
  {L"Close", L"Закрыть", L"Закрити", L"Închide", L"Schließen"},
  // S_UNINSTALL_LINK
- {L"Uninstall UltimateDesktopEffects", L"Удалить UltimateDesktopEffects", L"Видалити UltimateDesktopEffects", L"Dezinstalează UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удалить Ultimate Desktop Effects", L"Видалити Ultimate Desktop Effects", L"Dezinstalează Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_CURSOR_WIND
  {L"Wind follows cursor", L"Ветер за курсором", L"Вітер за курсором", L"Vântul după cursor", L"Wind folgt der Maus"},
  // S_SHOW_FALLING

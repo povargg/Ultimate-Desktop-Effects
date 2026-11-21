@@ -76,13 +76,13 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_LICENSE
  {L"Credits / MIT license", L"Авторы / лицензия MIT", L"Автори / ліцензія MIT", L"Autori / licență MIT", L"Mitwirkende / MIT-Lizenz"},
  // S_TRAY_TIP
- {L"UltimateDesktopEffects: candy and spiders by povargg", L"UltimateDesktopEffects: сладости и пауки от povargg", L"UltimateDesktopEffects: солодощі та павуки від povargg", L"UltimateDesktopEffects: dulciuri și păianjeni de povargg", L"UltimateDesktopEffects: Süßes und Spinnen von povargg"},
+ {L"Ultimate Desktop Effects: candy and spiders by povargg", L"Ultimate Desktop Effects: сладости и пауки от povargg", L"Ultimate Desktop Effects: солодощі та павуки від povargg", L"Ultimate Desktop Effects: dulciuri și păianjeni de povargg", L"Ultimate Desktop Effects: Süßes und Spinnen von povargg"},
  // S_WELCOME_TITLE
- {L"UltimateDesktopEffects is running", L"UltimateDesktopEffects запущен", L"UltimateDesktopEffects запущено", L"UltimateDesktopEffects rulează", L"UltimateDesktopEffects läuft"},
+ {L"Ultimate Desktop Effects is running", L"Ultimate Desktop Effects запущен", L"Ultimate Desktop Effects запущено", L"Ultimate Desktop Effects rulează", L"Ultimate Desktop Effects läuft"},
  // S_WELCOME_TEXT
  {L"Look for the pumpkin candy in the tray. Left click: settings. Right click: content mode and quick menu. Click a visible thread to cut it.", L"Значок конфеты в трее. Левый клик: настройки. Правый: режим и меню. Щёлкните по нити, чтобы перерезать её.", L"Значок цукерки в треї. Лівий клік: налаштування. Правий: режим та меню. Натисніть нитку, щоб перерізати її.", L"Bomboana este în zona de notificare. Clic stânga: setări. Clic dreapta: mod și meniu. Taie firul cu un clic.", L"Das Kürbisbonbon ist im Infobereich. Linksklick: Einstellungen. Rechtsklick: Motive und Menü. Ein Klick auf einen sichtbaren Faden schneidet ihn ab."},
  // S_SETTINGS_TITLE
- {L"UltimateDesktopEffects: settings", L"UltimateDesktopEffects: настройки", L"UltimateDesktopEffects: налаштування", L"UltimateDesktopEffects: setări", L"UltimateDesktopEffects: Einstellungen"},
+ {L"Ultimate Desktop Effects: settings", L"Ultimate Desktop Effects: настройки", L"Ultimate Desktop Effects: налаштування", L"Ultimate Desktop Effects: setări", L"Ultimate Desktop Effects: Einstellungen"},
  // S_SUBTITLE
  {L"Pixel treats and spiders on your desktop", L"Сладости и пауки на рабочем столе", L"Солодощі та павуки на робочому столі", L"Dulciuri și păianjeni pe desktop", L"Pixel-Süßigkeiten und Spinnen"},
  // S_PROJECT_BY
@@ -144,25 +144,25 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_CLEAR_ALL
  {L"Clear all", L"Убрать всё", L"Прибрати все", L"Șterge tot", L"Alles entfernen"},
  // S_INSTALL_TITLE
- {L"Install UltimateDesktopEffects", L"Установка UltimateDesktopEffects", L"Встановлення UltimateDesktopEffects", L"Instalare UltimateDesktopEffects", L"UltimateDesktopEffects installieren"},
+ {L"Install Ultimate Desktop Effects", L"Установка Ultimate Desktop Effects", L"Встановлення Ultimate Desktop Effects", L"Instalare Ultimate Desktop Effects", L"Ultimate Desktop Effects installieren"},
  // S_UPDATE_TITLE
- {L"Update UltimateDesktopEffects", L"Обновление UltimateDesktopEffects", L"Оновлення UltimateDesktopEffects", L"Actualizare UltimateDesktopEffects", L"UltimateDesktopEffects aktualisieren"},
+ {L"Update Ultimate Desktop Effects", L"Обновление Ultimate Desktop Effects", L"Оновлення Ultimate Desktop Effects", L"Actualizare Ultimate Desktop Effects", L"Ultimate Desktop Effects aktualisieren"},
  // S_INSTALL_SUB
  {L"Halloween pixels by povargg", L"Хеллоуин от povargg", L"Гелловін від povargg", L"Halloween de povargg", L"Halloween-Pixel von povargg"},
  // S_INSTALL_DESC
  {L"A project by povargg. Six pixel candies and four spiders collect on windows and the taskbar. Cut hanging threads with a click. Based on LayerSnow by flipkips (MIT).", L"Проект povargg. Шесть сладостей и четыре паука собираются на окнах и панели задач. Нити можно перерезать. Основа: LayerSnow от flipkips (MIT).", L"Проєкт povargg. Шість солодощів і чотири павуки збираються на вікнах і панелі завдань. Нитки можна перерізати. Основа: LayerSnow від flipkips (MIT).", L"Un proiect de povargg. Șase dulciuri și patru păianjeni pe ferestre și bara de activități. Firele se taie prin clic. Bază: LayerSnow de flipkips (MIT).", L"Ein Projekt von povargg. Sechs Pixel-Süßigkeiten und vier Spinnen sammeln sich auf Fenstern und Taskleiste. Fäden sind per Klick abschneidbar. Basis: LayerSnow von flipkips (MIT)."},
  // S_INSTALL_DONE
- {L"Done! Start UltimateDesktopEffects from the Start menu.", L"Готово! Откройте UltimateDesktopEffects из меню «Пуск».", L"Готово! Відкрийте UltimateDesktopEffects з меню «Пуск».", L"Gata! Pornește UltimateDesktopEffects din meniul Start.", L"Fertig! UltimateDesktopEffects lässt sich im Startmenü öffnen."},
+ {L"Done! Start Ultimate Desktop Effects from the Start menu.", L"Готово! Откройте Ultimate Desktop Effects из меню «Пуск».", L"Готово! Відкрийте Ultimate Desktop Effects з меню «Пуск».", L"Gata! Pornește Ultimate Desktop Effects din meniul Start.", L"Fertig! Ultimate Desktop Effects lässt sich im Startmenü öffnen."},
  // S_UNINSTALL_TITLE
- {L"Uninstall UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Dezinstalare UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Dezinstalare Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_UNINSTALL_SUB
  {L"Remove Halloween effects", L"Убрать Хеллоуин", L"Прибрати Гелловін", L"Elimină efectele Halloween", L"Halloween-Effekte entfernen"},
  // S_REMOVED_TITLE
- {L"UltimateDesktopEffects removed", L"UltimateDesktopEffects удалён", L"UltimateDesktopEffects видалено", L"UltimateDesktopEffects a fost eliminat", L"UltimateDesktopEffects wurde entfernt"},
+ {L"Ultimate Desktop Effects removed", L"Ultimate Desktop Effects удалён", L"Ultimate Desktop Effects видалено", L"Ultimate Desktop Effects a fost eliminat", L"Ultimate Desktop Effects wurde entfernt"},
  // S_REMOVED_TEXT
  {L"The treats and spiders have gone.", L"Сладости и пауки убраны.", L"Солодощі та павуки прибрані.", L"Dulciurile și păianjenii au dispărut.", L"Süßigkeiten und Spinnen wurden entfernt."},
  // S_UNINSTALL_LINK
- {L"Uninstall UltimateDesktopEffects", L"Удалить UltimateDesktopEffects", L"Видалити UltimateDesktopEffects", L"Dezinstalează UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удалить Ultimate Desktop Effects", L"Видалити Ultimate Desktop Effects", L"Dezinstalează Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_MODE_CANDY
  {L"Candy", L"Сладости", L"Солодощі", L"Dulciuri", L"Süßigkeiten"},
  // S_MODE_SPIDERS

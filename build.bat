@@ -1,5 +1,5 @@
 @echo off
-rem Build one self-contained UltimateDesktopEffects Windows x64 application.
+rem Build one self-contained Ultimate Desktop Effects Windows x64 application.
 setlocal
 cd /d "%~dp0"
 set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
@@ -18,12 +18,12 @@ set /a ude_unit_count=0 >nul
 for /r src %%f in (*.cpp) do (
  call :compile "%%f" || exit /b 1
 )
-link /nologo @build\objects.rsp build\app.res /OUT:dist\UltimateDesktopEffects.exe /SUBSYSTEM:WINDOWS ^
+link /nologo @build\objects.rsp build\app.res /OUT:dist\Ultimate-Desktop-Effects-x64.exe /SUBSYSTEM:WINDOWS ^
  user32.lib gdi32.lib shell32.lib ole32.lib advapi32.lib comctl32.lib d3d11.lib dxgi.lib d2d1.lib ^
- dwrite.lib dcomp.lib dwmapi.lib shcore.lib uuid.lib || exit /b 1
-copy /y dist\UltimateDesktopEffects.exe dist\UltimateDesktopEffects-Portable.exe >nul || exit /b 1
-copy /y dist\UltimateDesktopEffects.exe dist\UltimateDesktopEffects-Uninstall.exe >nul || exit /b 1
-echo Built dist\UltimateDesktopEffects.exe
+ dwrite.lib dcomp.lib dwmapi.lib shcore.lib uuid.lib winhttp.lib bcrypt.lib || exit /b 1
+copy /y dist\Ultimate-Desktop-Effects-x64.exe dist\Ultimate-Desktop-Effects-Portable.exe >nul || exit /b 1
+copy /y dist\Ultimate-Desktop-Effects-x64.exe dist\Ultimate-Desktop-Effects-Uninstall.exe >nul || exit /b 1
+echo Built dist\Ultimate-Desktop-Effects-x64.exe
 exit /b 0
 :compile
 set "unit_path=%~1"

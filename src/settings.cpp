@@ -1,7 +1,7 @@
 #include "settings.h"
 #include <shlobj.h>
 static const wchar_t kRunKey[]=L"Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-std::wstring SettingsDir(){PWSTR p=nullptr;std::wstring dir;if(SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData,0,nullptr,&p))){dir=std::wstring(p)+L"\\" APP_NAME;CoTaskMemFree(p);}return dir;}
+std::wstring SettingsDir(){PWSTR p=nullptr;std::wstring dir;if(SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData,0,nullptr,&p))){dir=std::wstring(p)+L"\\" APP_ID;CoTaskMemFree(p);}return dir;}
 static std::string ReadFileText(const std::wstring& path){
  HANDLE h=CreateFileW(path.c_str(),GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,nullptr,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,nullptr);if(h==INVALID_HANDLE_VALUE)return {};
  LARGE_INTEGER size{};std::string text;
@@ -27,5 +27,5 @@ void SaveSettings(){
  if(ok)ok=MoveFileExW(temporary.c_str(),path.c_str(),MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)!=0;
  if(!ok)DeleteFileW(temporary.c_str());
 }
-bool IsAutostartEnabled(){wchar_t buf[MAX_PATH*2];DWORD size=sizeof(buf);return RegGetValueW(HKEY_CURRENT_USER,kRunKey,APP_NAME,RRF_RT_REG_SZ,nullptr,buf,&size)==ERROR_SUCCESS;}
-void SetAutostart(bool on,const std::wstring& exe){HKEY key;if(RegCreateKeyExW(HKEY_CURRENT_USER,kRunKey,0,nullptr,0,KEY_SET_VALUE,nullptr,&key,nullptr)!=ERROR_SUCCESS)return;if(on){auto cmd=L"\""+exe+L"\" /autostart";RegSetValueExW(key,APP_NAME,0,REG_SZ,(const BYTE*)cmd.c_str(),(DWORD)((cmd.size()+1)*sizeof(wchar_t)));}else RegDeleteValueW(key,APP_NAME);RegCloseKey(key);}
+bool IsAutostartEnabled(){wchar_t buf[MAX_PATH*2];DWORD size=sizeof(buf);return RegGetValueW(HKEY_CURRENT_USER,kRunKey,APP_ID,RRF_RT_REG_SZ,nullptr,buf,&size)==ERROR_SUCCESS;}
+void SetAutostart(bool on,const std::wstring& exe){HKEY key;if(RegCreateKeyExW(HKEY_CURRENT_USER,kRunKey,0,nullptr,0,KEY_SET_VALUE,nullptr,&key,nullptr)!=ERROR_SUCCESS)return;if(on){auto cmd=L"\""+exe+L"\" /autostart";RegSetValueExW(key,APP_ID,0,REG_SZ,(const BYTE*)cmd.c_str(),(DWORD)((cmd.size()+1)*sizeof(wchar_t)));}else RegDeleteValueW(key,APP_ID);RegCloseKey(key);}

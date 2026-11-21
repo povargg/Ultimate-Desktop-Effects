@@ -247,9 +247,10 @@ void ShowTrayFlyout(HWND notify) {
     p.AddItem({8, 376, 308, 406}, Tr(S_SHAKE_ALL), CMD_SHAKE);
     p.AddItem({8, 408, 308, 438}, Tr(S_WEATHER_SETTINGS), CMD_WEATHER);
     p.AddItem({8, 440, 308, 470}, Tr(S_ALL_SETTINGS), CMD_SETTINGS);
-    p.AddItem({8, 472, 308, 502}, Tr(S_EXIT), CMD_EXIT);
-    p.AddLink({20,514,150,534},L"povargg",APP_REPO);
-    p.AddLink({160,514,298,534},L"flipkips",UPSTREAM_REPO,true);
+    p.AddItem({8, 472, 308, 502}, ::Tr(::S_CHECK_UPDATES), ::CMD_CHECK_UPDATES);
+    p.AddItem({8, 504, 308, 534}, Tr(S_EXIT), CMD_EXIT);
+    p.AddLink({20,546,150,566},L"povargg",APP_REPO);
+    p.AddLink({160,546,298,566},L"flipkips",UPSTREAM_REPO,true);
 
     auto onEvent = [](int id) {
         if (id == 0) {
@@ -263,7 +264,7 @@ void ShowTrayFlyout(HWND notify) {
     };
     POINT pt;
     GetCursorPos(&pt);
-    if (!p.Create(APP_NAME, 316, 562, onEvent, &pt)) g_flyout.reset();
+    if (!p.Create(APP_NAME, 316, 594, onEvent, &pt)) g_flyout.reset();
 }
 
 bool UiContainsPoint(POINT point){for(auto* p:{g_panel.get(),g_flyout.get(),g_weather.get()}){if(!p||!p->Hwnd()||!IsWindowVisible(p->Hwnd())||IsIconic(p->Hwnd()))continue;RECT r{};if(GetWindowRect(p->Hwnd(),&r)&&PtInRect(&r,point))return true;}return false;}

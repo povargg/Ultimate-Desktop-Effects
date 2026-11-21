@@ -1,4 +1,4 @@
-# Architektur – UltimateDesktopEffects 1.0.0
+# Architektur – Ultimate Desktop Effects 1.0.0
 
 ## Ein gemeinsamer Host
 

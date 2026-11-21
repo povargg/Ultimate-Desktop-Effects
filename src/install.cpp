@@ -10,7 +10,7 @@ using SuitePanel=snowfx::SnowPanel;
 #include <shlobj.h>
 #include <shobjidl.h>
 
-static const wchar_t kUninstallKey[] = L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\" APP_NAME;
+static const wchar_t kUninstallKey[] = L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\" APP_ID;
 
 static std::wstring KnownFolder(REFKNOWNFOLDERID id) {
     PWSTR p = nullptr;
@@ -19,8 +19,8 @@ static std::wstring KnownFolder(REFKNOWNFOLDERID id) {
     return s;
 }
 
-std::wstring InstallDir() { return KnownFolder(FOLDERID_LocalAppData) + L"\\Programs\\" APP_NAME; }
-std::wstring InstalledExe() { return InstallDir() + L"\\" APP_NAME L".exe"; }
+std::wstring InstallDir() { return KnownFolder(FOLDERID_LocalAppData) + L"\\Programs\\" APP_ID; }
+std::wstring InstalledExe() { return InstallDir() + L"\\" APP_ID L".exe"; }
 static std::wstring UninstallerExe() { return InstallDir() + L"\\uninstall.exe"; }
 static std::wstring StartMenuDir() { return KnownFolder(FOLDERID_Programs) + L"\\" APP_NAME; }
 static std::wstring DesktopLink() { return KnownFolder(FOLDERID_Desktop) + L"\\" APP_NAME L".lnk"; }
@@ -51,8 +51,9 @@ static bool CreateLink(const std::wstring& link, const std::wstring& target, con
     return SUCCEEDED(pf->Save(link.c_str(), TRUE));
 }
 
-static void RemoveStartMenu() {
-    std::wstring dir = StartMenuDir();
+static std::wstring LegacyDesktopLink() { return KnownFolder(FOLDERID_Desktop) + L"\\" APP_ID L".lnk"; }
+
+static void RemoveAppLinks(const std::wstring& dir) {
     WIN32_FIND_DATAW fd;
     HANDLE h = FindFirstFileW((dir + L"\\*.lnk").c_str(), &fd);
     if (h != INVALID_HANDLE_VALUE) {
@@ -61,7 +62,21 @@ static void RemoveStartMenu() {
         FindClose(h);
     }
     RemoveDirectoryW(dir.c_str());
-    DeleteFileW((KnownFolder(FOLDERID_Programs) + L"\\" APP_NAME L".lnk").c_str());  // shortcut from older versions
+}
+
+static void RemoveLegacyShortcuts() {
+    const auto programs = KnownFolder(FOLDERID_Programs);
+    RemoveAppLinks(programs + L"\\" APP_ID);
+    DeleteFileW((programs + L"\\" APP_ID L".lnk").c_str());
+    DeleteFileW(LegacyDesktopLink().c_str());
+}
+
+static bool WriteShortcuts(bool desktop) {
+    const auto dir = StartMenuDir();
+    SHCreateDirectoryExW(nullptr, dir.c_str(), nullptr);
+    return CreateLink(dir + L"\\" APP_NAME L".lnk", InstalledExe()) &&
+           CreateLink(dir + L"\\" + Tr(S_UNINSTALL_LINK) + L".lnk", UninstallerExe()) &&
+           (!desktop || CreateLink(DesktopLink(), InstalledExe()));
 }
 
 static void RegStr(HKEY k, const wchar_t* name, const std::wstring& v) {
@@ -79,25 +94,11 @@ static bool CopyWithRetry(const std::wstring& from, const std::wstring& to) {
     return false;
 }
 
-static std::wstring DoInstall(bool autostart, bool desktop) {
-    CloseRunningInstance();
-    std::wstring dir = InstallDir(), exe = InstalledExe(), unins = UninstallerExe();
-    SHCreateDirectoryExW(nullptr, dir.c_str(), nullptr);
-    if (!CopyWithRetry(ExePath(), exe) || !CopyWithRetry(ExePath(), unins)) return Tr(S_COPY_FAILED) + dir;
-
-    RemoveStartMenu();
-    SHCreateDirectoryExW(nullptr, StartMenuDir().c_str(), nullptr);
-    CreateLink(StartMenuDir() + L"\\" APP_NAME L".lnk", exe);
-    CreateLink(StartMenuDir() + L"\\" + Tr(S_UNINSTALL_LINK) + L".lnk", unins);
-    if (desktop) CreateLink(DesktopLink(), exe);
-    else DeleteFileW(DesktopLink().c_str());
-    SetAutostart(autostart, exe);
-    SaveSettings();  // keeps the language picked in the installer
-
+static void WriteRegistration(const std::wstring& dir, const std::wstring& exe, const std::wstring& unins) {
     HKEY k;
     if (RegCreateKeyExW(HKEY_CURRENT_USER, kUninstallKey, 0, nullptr, 0, KEY_SET_VALUE, nullptr, &k, nullptr) ==
         ERROR_SUCCESS) {
-        RegStr(k, L"DisplayName", Tr(S_TRAY_TIP));
+        RegStr(k, L"DisplayName", APP_NAME);
         RegStr(k, L"DisplayVersion", APP_VERSION);
         RegStr(k, L"Publisher", APP_AUTHOR);
         RegStr(k, L"URLInfoAbout", APP_REPO);
@@ -112,13 +113,44 @@ static std::wstring DoInstall(bool autostart, bool desktop) {
             RegDword(k, L"EstimatedSize", 2 * (fa.nFileSizeLow / 1024 + 1));
         RegCloseKey(k);
     }
+}
+
+void RefreshInstallBranding() {
+    wchar_t installed[64]{};
+    DWORD size = sizeof(installed);
+    if (RegGetValueW(HKEY_CURRENT_USER, kUninstallKey, L"DisplayVersion", RRF_RT_REG_SZ,
+                     nullptr, installed, &size) != ERROR_SUCCESS || !wcscmp(installed, APP_VERSION)) return;
+
+    const auto exe = InstalledExe();
+    const bool desktop = GetFileAttributesW(LegacyDesktopLink().c_str()) != INVALID_FILE_ATTRIBUTES ||
+                         GetFileAttributesW(DesktopLink().c_str()) != INVALID_FILE_ATTRIBUTES;
+    if (!CopyFileW(exe.c_str(), UninstallerExe().c_str(), FALSE) || !WriteShortcuts(desktop)) return;
+    RemoveLegacyShortcuts();
+    WriteRegistration(InstallDir(), exe, UninstallerExe());
+    SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATHW, exe.c_str(), nullptr);
+}
+
+static std::wstring DoInstall(bool autostart, bool desktop) {
+    CloseRunningInstance();
+    const auto dir = InstallDir(), exe = InstalledExe(), unins = UninstallerExe();
+    SHCreateDirectoryExW(nullptr, dir.c_str(), nullptr);
+    if (!CopyWithRetry(ExePath(), exe) || !CopyWithRetry(ExePath(), unins)) return Tr(S_COPY_FAILED) + dir;
+
+    RemoveAppLinks(StartMenuDir());
+    if (!WriteShortcuts(desktop)) return Tr(S_COPY_FAILED) + dir;
+    RemoveLegacyShortcuts();
+    if (!desktop) DeleteFileW(DesktopLink().c_str());
+    SetAutostart(autostart, exe);
+    SaveSettings();  // keeps the language picked in the installer
+    WriteRegistration(dir, exe, unins);
     return L"";
 }
 
 static void DoUninstall(bool deleteSettings) {
     CloseRunningInstance();
     SetAutostart(false);
-    RemoveStartMenu();
+    RemoveAppLinks(StartMenuDir());
+    RemoveLegacyShortcuts();
     DeleteFileW(DesktopLink().c_str());
     RegDeleteKeyW(HKEY_CURRENT_USER, kUninstallKey);
     if (deleteSettings) {

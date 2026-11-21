@@ -1,8 +1,12 @@
-# UltimateDesktopEffects 1.0.2
+# Ultimate Desktop Effects 1.0.3
 
 **Von [povargg](https://github.com/povargg) und [flipkips](https://github.com/flipkips/desktop-snow-overlay).** Die Windows-Grundlage und der Schnee stammen aus LayerSnow von flipkips; Regen, Blätter, Halloween und die gemeinsame Anwendung bauen darauf auf. MIT-Lizenz.
 
 Eine Windows-App mit vier direkt umschaltbaren Effekten: **Schnee, Regen, Blätter und Halloween**. Alle bisherigen Effektparameter bleiben verfügbar. Sprache, Installation, Tray-Symbol und Windows-Autostart werden gemeinsam verwaltet.
+
+## Änderungen in 1.0.3
+
+Das Infobereichsmenü enthält **Nach Updates suchen**. Die App prüft GitHub im Hintergrund, verifiziert den Download per SHA-256 und startet nach der Bestätigung neu. Bei einer älteren Version muss 1.0.3 einmal installiert werden.
 
 ## Änderungen in 1.0.2
 
@@ -13,9 +17,9 @@ Eine Windows-App mit vier direkt umschaltbaren Effekten: **Schnee, Regen, Blätt
 
 | Datei | Verwendung |
 | --- | --- |
-| `UltimateDesktopEffects.exe` | Doppelklick öffnet die einmalige Installation. Danach über das Startmenü oder die installierte EXE starten. |
-| `UltimateDesktopEffects-Portable.exe` | Per Doppelklick sofort starten. Der Dateiname muss `Portable` enthalten. |
-| `UltimateDesktopEffects-Quellcode.zip` | Vollständiger C++17-Quellcode, Pixelgrafiken, Tests, Buildskripte und Dokumentation. |
+| `Ultimate-Desktop-Effects-x64.exe` | Doppelklick öffnet die einmalige Installation. Danach über das Startmenü oder die installierte EXE starten. |
+| `Ultimate-Desktop-Effects-Portable.exe` | Per Doppelklick sofort starten. Der Dateiname muss `Portable` enthalten. |
+| `Ultimate-Desktop-Effects-Source.zip` | Vollständiger C++17-Quellcode, Pixelgrafiken, Tests, Buildskripte und Dokumentation. |
 
 Windows 10 ab Version 1703 und Windows 11, **64 Bit**, mit Direct3D-11-Unterstützung. Es werden keine zusätzlichen .NET-, Python- oder Visual-C++-Laufzeitpakete zum Ausführen benötigt.
 
@@ -50,7 +54,7 @@ Die bisherigen Funktionen für vor/hinter Fenstern, Fenster- und Taskleistenansa
 
 Alle Oberflächen bieten **Deutsch, Englisch, Russisch, Ukrainisch und Rumänisch**. Die Sprache gilt für die gesamte Anwendung; auch der Schneemodus besitzt jetzt Deutsch als fünfte Sprache. Beide Autoren stehen im Interface und Installer.
 
-Beim ersten Start werden vorhandene Effektparameter aus den bisherigen Ordnern `LayerSnow` beziehungsweise `SnowLayer`, `LayerRain`, `LayerLeaves` und `LayerHalloween` gelesen, sofern noch keine neue Konfigurationsdatei besteht. Die neuen Profile werden anschließend gemeinsam gespeichert. Bereits vorhandene Einzelversionen und deren Dateien bleiben eigenständig. Für die gemeinsame Anwendung genügt es, UltimateDesktopEffects zu starten; frühere Einzelversionen können separat beendet oder deinstalliert werden.
+Beim ersten Start werden vorhandene Effektparameter aus den bisherigen Ordnern `LayerSnow` beziehungsweise `SnowLayer`, `LayerRain`, `LayerLeaves` und `LayerHalloween` gelesen, sofern noch keine neue Konfigurationsdatei besteht. Die neuen Profile werden anschließend gemeinsam gespeichert. Bereits vorhandene Einzelversionen und deren Dateien bleiben eigenständig. Für die gemeinsame Anwendung genügt es, Ultimate Desktop Effects zu starten; frühere Einzelversionen können separat beendet oder deinstalliert werden.
 
 ## Leistung
 
@@ -70,7 +74,7 @@ python3 build_mingw.py --cxx x86_64-w64-mingw32-g++-posix
 
 Visual Studio 2022 Build Tools mit C++-Desktopentwicklung und Windows SDK installieren, dann `build.bat` ausführen. Dieses alternative Buildskript ist enthalten; der ausgelieferte Build wurde tatsächlich mit MinGW-w64 kompiliert.
 
-Ausgaben: `dist/UltimateDesktopEffects.exe`, `dist/UltimateDesktopEffects-Portable.exe`, `dist/UltimateDesktopEffects-Uninstall.exe`. Alle drei enthalten dieselben Bytes; Dateiname und Startparameter steuern den Betriebsmodus.
+Ausgaben: `dist/Ultimate-Desktop-Effects-x64.exe`, `dist/Ultimate-Desktop-Effects-Portable.exe`, `dist/Ultimate-Desktop-Effects-Uninstall.exe`. Alle drei enthalten dieselben Bytes; Dateiname und Startparameter steuern den Betriebsmodus.
 
 | Parameter | Wirkung |
 | --- | --- |

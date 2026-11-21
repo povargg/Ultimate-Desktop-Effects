@@ -4,13 +4,13 @@ namespace snowfx {
 const wchar_t* const kLangCodes[LANG_COUNT]={L"EN",L"RU",L"UA",L"RO",L"DE"};
 static const wchar_t* const kText[][LANG_COUNT]={
  // S_TRAY_TIP
- {L"UltimateDesktopEffects: snow on your screen", L"UltimateDesktopEffects: снег на экране", L"UltimateDesktopEffects: сніг на екрані", L"UltimateDesktopEffects: zăpadă pe ecran", L"UltimateDesktopEffects: Schnee"},
+ {L"Ultimate Desktop Effects: snow on your screen", L"Ultimate Desktop Effects: снег на экране", L"Ultimate Desktop Effects: сніг на екрані", L"Ultimate Desktop Effects: zăpadă pe ecran", L"Ultimate Desktop Effects: Schnee"},
  // S_WELCOME_TITLE
- {L"UltimateDesktopEffects is running ❄", L"UltimateDesktopEffects запущен ❄", L"UltimateDesktopEffects запущено ❄", L"UltimateDesktopEffects rulează ❄", L"UltimateDesktopEffects läuft"},
+ {L"Ultimate Desktop Effects is running ❄", L"Ultimate Desktop Effects запущен ❄", L"Ultimate Desktop Effects запущено ❄", L"Ultimate Desktop Effects rulează ❄", L"Ultimate Desktop Effects läuft"},
  // S_WELCOME_TEXT
  {L"The snowflake lives in the tray. Left click opens settings, right click opens the menu.", L"Снежинка в трее. Левый клик открывает настройки, правый показывает меню.", L"Сніжинка в треї. Лівий клік відкриває налаштування, правий показує меню.", L"Fulgul stă în zona de notificare. Clic stânga deschide setările, clic dreapta deschide meniul.", L"Linksklick auf das Symbol: Einstellungen. Rechtsklick: Schnellmenü und Effektauswahl."},
  // S_SETTINGS_TITLE
- {L"UltimateDesktopEffects: settings", L"UltimateDesktopEffects: настройки", L"UltimateDesktopEffects: налаштування", L"UltimateDesktopEffects: setări", L"UltimateDesktopEffects: Einstellungen"},
+ {L"Ultimate Desktop Effects: settings", L"Ultimate Desktop Effects: настройки", L"Ultimate Desktop Effects: налаштування", L"Ultimate Desktop Effects: setări", L"Ultimate Desktop Effects: Einstellungen"},
  // S_SUBTITLE
  {L"Holiday snow, drifts and blizzards right on your desktop", L"Новогодний снег, сугробы и метель прямо на рабочем столе", L"Новорічний сніг, замети та хуртовина просто на робочому столі", L"Zăpadă de sărbători, troiene și viscol direct pe desktop", L"Schneeflocken und Schneeverwehungen"},
  // S_CARD_SNOWFALL
@@ -90,9 +90,9 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_EXIT
  {L"Exit", L"Выход", L"Вихід", L"Ieșire", L"Beenden"},
  // S_INSTALL_TITLE
- {L"Install UltimateDesktopEffects", L"Установка UltimateDesktopEffects", L"Встановлення UltimateDesktopEffects", L"Instalare UltimateDesktopEffects", L"UltimateDesktopEffects installieren"},
+ {L"Install Ultimate Desktop Effects", L"Установка Ultimate Desktop Effects", L"Встановлення Ultimate Desktop Effects", L"Instalare Ultimate Desktop Effects", L"Ultimate Desktop Effects installieren"},
  // S_UPDATE_TITLE
- {L"Update UltimateDesktopEffects", L"Обновление UltimateDesktopEffects", L"Оновлення UltimateDesktopEffects", L"Actualizare UltimateDesktopEffects", L"UltimateDesktopEffects aktualisieren"},
+ {L"Update Ultimate Desktop Effects", L"Обновление Ultimate Desktop Effects", L"Оновлення Ultimate Desktop Effects", L"Actualizare Ultimate Desktop Effects", L"Ultimate Desktop Effects aktualisieren"},
  // S_INSTALL_SUB
  {L"Holiday snow on your screen", L"Новогодний снег на вашем экране", L"Новорічний сніг на вашому екрані", L"Zăpadă de sărbători pe ecranul tău", L"Schneeflocken und Schneeverwehungen"},
  // S_WHAT_INSTALLED
@@ -118,11 +118,11 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_INSTALL_ERROR
  {L"Installation error", L"Ошибка установки", L"Помилка встановлення", L"Eroare la instalare", L"Installationsfehler"},
  // S_INSTALL_DONE
- {L"Done! You can start UltimateDesktopEffects from the Start menu.", L"Готово! UltimateDesktopEffects можно запустить из меню «Пуск».", L"Готово! UltimateDesktopEffects можна запустити з меню «Пуск».", L"Gata! Poți porni UltimateDesktopEffects din meniul Start.", L"Fertig! UltimateDesktopEffects lässt sich im Startmenü öffnen."},
+ {L"Done! You can start Ultimate Desktop Effects from the Start menu.", L"Готово! Ultimate Desktop Effects можно запустить из меню «Пуск».", L"Готово! Ultimate Desktop Effects можна запустити з меню «Пуск».", L"Gata! Poți porni Ultimate Desktop Effects din meniul Start.", L"Fertig! Ultimate Desktop Effects lässt sich im Startmenü öffnen."},
  // S_UNINSTALL_TITLE
- {L"Uninstall UltimateDesktopEffects", L"Удаление UltimateDesktopEffects", L"Видалення UltimateDesktopEffects", L"Dezinstalare UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удаление Ultimate Desktop Effects", L"Видалення Ultimate Desktop Effects", L"Dezinstalare Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_UNINSTALL_SUB
- {L"Remove the snow from this computer", L"Убрать снег с этого компьютера", L"Прибрати сніг із цього комп'ютера", L"Elimină zăpada de pe acest computer", L"UltimateDesktopEffects entfernen"},
+ {L"Remove the snow from this computer", L"Убрать снег с этого компьютера", L"Прибрати сніг із цього комп'ютера", L"Elimină zăpada de pe acest computer", L"Ultimate Desktop Effects entfernen"},
  // S_UNINSTALL_CARD
  {L"What will be removed", L"Что будет удалено", L"Що буде видалено", L"Ce se elimină", L"Was entfernt wird"},
  // S_UNINSTALL_DESC
@@ -132,13 +132,13 @@ static const wchar_t* const kText[][LANG_COUNT]={
  // S_UNINSTALL
  {L"Uninstall", L"Удалить", L"Видалити", L"Dezinstalează", L"Deinstallieren"},
  // S_REMOVED_TITLE
- {L"UltimateDesktopEffects removed", L"UltimateDesktopEffects удалён", L"UltimateDesktopEffects видалено", L"UltimateDesktopEffects a fost eliminat", L"UltimateDesktopEffects wurde entfernt"},
+ {L"Ultimate Desktop Effects removed", L"Ultimate Desktop Effects удалён", L"Ultimate Desktop Effects видалено", L"Ultimate Desktop Effects a fost eliminat", L"Ultimate Desktop Effects wurde entfernt"},
  // S_REMOVED_TEXT
- {L"The snow has melted. Happy holidays! ❄", L"Снег растаял. С наступающим! ❄", L"Сніг розтанув. Зі святами! ❄", L"Zăpada s-a topit. Sărbători fericite! ❄", L"UltimateDesktopEffects wurde entfernt."},
+ {L"The snow has melted. Happy holidays! ❄", L"Снег растаял. С наступающим! ❄", L"Сніг розтанув. Зі святами! ❄", L"Zăpada s-a topit. Sărbători fericite! ❄", L"Ultimate Desktop Effects wurde entfernt."},
  // S_CLOSE
  {L"Close", L"Закрыть", L"Закрити", L"Închide", L"Schließen"},
  // S_UNINSTALL_LINK
- {L"Uninstall UltimateDesktopEffects", L"Удалить UltimateDesktopEffects", L"Видалити UltimateDesktopEffects", L"Dezinstalează UltimateDesktopEffects", L"UltimateDesktopEffects deinstallieren"},
+ {L"Uninstall Ultimate Desktop Effects", L"Удалить Ultimate Desktop Effects", L"Видалити Ultimate Desktop Effects", L"Dezinstalează Ultimate Desktop Effects", L"Ultimate Desktop Effects deinstallieren"},
  // S_CURSOR_WIND
  {L"Wind follows cursor", L"Ветер за курсором", L"Вітер за курсором", L"Vântul după cursor", L"Wind folgt der Maus"},
  // S_SHOW_FALLING
